@@ -1,0 +1,440 @@
+$navy:   #003366;
+$blue:   #00AEEF;
+$orange: #F58220;
+$copper: #c47a3d;
+$brass:  #d4a574;
+
+// ── SECTION
+.corman-teaser {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 64px 120px;
+  background: linear-gradient(
+    180deg,
+    #14110d 0%,
+    #1a1712 25%,
+    #1f1c17 55%,
+    #1a1712 80%,
+    #14110d 100%
+  );
+}
+
+// Ambient copper + blue glow (matches gallery/services)
+.corman-teaser__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 55% 40% at 15% 20%, rgba(196, 122, 61, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 55% at 85% 70%, rgba(0, 174, 239, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 30% at 60% 50%, rgba(212, 165, 116, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+// Blueprint grid overlay
+.corman-teaser__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(212, 165, 116, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 165, 116, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 80%);
+}
+
+.corman-teaser__inner {
+  position: relative;
+  z-index: 3;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+// ── HEADER (centered)
+.corman-teaser__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.corman-teaser__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $blue;
+  margin-bottom: 20px;
+}
+
+.corman-teaser__pulse-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: $blue;
+  box-shadow: 0 0 0 2px rgba(0, 174, 239, 0.3);
+  animation: cormanTeaserPulse 2s ease-in-out infinite;
+}
+
+@keyframes cormanTeaserPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.3); }
+}
+
+.corman-teaser__heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0;
+
+  em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+// ── MAIN CARD
+.corman-teaser__card {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(196, 122, 61, 0.1) 0%,
+    rgba(42, 38, 32, 0.5) 100%
+  );
+  border: 1px solid rgba(196, 122, 61, 0.25);
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  position: relative;
+
+  // Top copper glow line (matches services flagship card)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(196, 122, 61, 0.7) 30%,
+      rgba(212, 165, 116, 0.8) 50%,
+      rgba(196, 122, 61, 0.7) 70%,
+      transparent 100%
+    );
+    z-index: 4;
+  }
+
+  // Bottom inner radial glow
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 70% 60% at 30% 100%,
+      rgba(196, 122, 61, 0.12) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+// ── LEFT CONTENT
+.corman-teaser__content {
+  padding: 44px 48px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.corman-teaser__ghost {
+  position: absolute;
+  top: -20px; right: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 200px;
+  font-weight: 700;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.corman-teaser__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.corman-teaser__logo-well {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: rgba(196, 122, 61, 0.14);
+  border: 1px solid rgba(196, 122, 61, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  img { display: block; }
+}
+
+.corman-teaser__brand-tag {
+  display: inline-flex;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $brass;
+  background: rgba(196, 122, 61, 0.1);
+  border: 1px solid rgba(196, 122, 61, 0.3);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 6px;
+}
+
+.corman-teaser__brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.corman-teaser__body {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.8;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+
+  strong {
+    color: $brass;
+    font-weight: 600;
+  }
+}
+
+// ── PARTNERS ROW
+.corman-teaser__partners {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 2;
+}
+
+.corman-teaser__partner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.corman-teaser__partner-abbr {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  color: #fff;
+  line-height: 1;
+}
+
+.corman-teaser__partner-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+}
+
+.corman-teaser__partner-x {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: $brass;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+// ── CTA
+.corman-teaser__cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1712;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  padding: 13px 26px;
+  cursor: pointer;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(196, 122, 61, 0.3);
+
+    .corman-teaser__cta-arrow { transform: translateX(4px); }
+  }
+}
+
+.corman-teaser__cta-arrow {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+// ── RIGHT STATS
+.corman-teaser__stats {
+  padding: 44px 48px;
+  background: rgba(20, 17, 13, 0.4);
+  border-left: 1px solid rgba(196, 122, 61, 0.15);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 24px;
+  align-content: start;
+  position: relative;
+  z-index: 2;
+}
+
+.corman-teaser__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 0;
+}
+
+.corman-teaser__stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+
+  em {
+    font-style: italic;
+    color: $brass;
+  }
+}
+
+.corman-teaser__stat-lbl {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+// Hide separator (grid handles it)
+.corman-teaser__stat-sep { display: none; }
+
+// ── HIGHLIGHTS
+.corman-teaser__highlights {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.corman-teaser__highlight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.corman-teaser__check {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(196, 122, 61, 0.15);
+  border: 1px solid rgba(196, 122, 61, 0.4);
+  color: $brass;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+// ── RESPONSIVE
+@media (max-width: 1024px) {
+  .corman-teaser { padding: 80px 40px 100px; }
+
+  .corman-teaser__card {
+    grid-template-columns: 1fr;
+  }
+
+  .corman-teaser__stats {
+    border-left: none;
+    border-top: 1px solid rgba(196, 122, 61, 0.15);
+  }
+}
+
+@media (max-width: 800px) {
+  .corman-teaser { padding: 64px 24px 80px; }
+
+  .corman-teaser__content,
+  .corman-teaser__stats { padding: 32px 28px; }
+
+  .corman-teaser__ghost { font-size: 140px; }
+  .corman-teaser__brand-name { font-size: 18px; }
+
+  .corman-teaser__partners {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .corman-teaser__partner-x { display: none; }
+
+  .corman-teaser__highlights { grid-column: span 2; }
+}
+
+@media (max-width: 520px) {
+  .corman-teaser { padding: 48px 16px 64px; }
+
+  .corman-teaser__content,
+  .corman-teaser__stats { padding: 28px 20px; }
+
+  .corman-teaser__ghost { font-size: 100px; }
+
+  .corman-teaser__stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .corman-teaser__cta { width: 100%; justify-content: center; }
+}

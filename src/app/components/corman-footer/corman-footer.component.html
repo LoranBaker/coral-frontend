@@ -1,0 +1,229 @@
+<!-- Wave transition: dark section → warm paper footer -->
+<div class="cm-footer__transition">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="cmFooterFade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#14110d"/>
+        <stop offset="60%" stop-color="#3d3830"/>
+        <stop offset="100%" stop-color="#f5f2ec"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="120" fill="url(#cmFooterFade)"/>
+    <path d="M0,0 L0,50 C60,68 130,82 220,70 C300,60 360,88 460,96 C550,104 620,72 700,76 C780,80 840,102 940,96 C1040,90 1100,62 1180,54 C1195,52 1200,55 1200,58 L1200,0 Z" fill="#2a2620" opacity="0.7"/>
+    <path d="M0,0 L0,32 C80,46 170,58 285,50 C375,44 440,66 540,74 C640,82 720,56 820,60 C920,64 1000,82 1100,78 C1165,75 1190,62 1200,60 L1200,0 Z" fill="#1f1c17" opacity="0.85"/>
+    <path d="M0,0 L0,16 C100,28 215,34 335,30 C455,26 535,42 655,44 C775,46 875,30 985,32 C1085,34 1155,44 1200,42 L1200,0 Z" fill="#1a1712"/>
+    <path d="M0,0 L0,6 C150,12 300,8 450,10 C600,12 750,6 900,8 C1050,10 1150,6 1200,6 L1200,0 Z" fill="#14110d"/>
+  </svg>
+</div>
+
+<!-- Back to CSMS Banner (replaces the CorMan banner) -->
+<div class="cm-footer__csms-banner">
+  <div class="cm-footer__csms-inner">
+    <div class="cm-footer__csms-left">
+      <div class="cm-footer__csms-icon">
+        <svg width="24" height="24" viewBox="0 0 18 18" fill="none">
+          <path d="M9 1L2 5v8l7 4 7-4V5L9 1z" stroke="#c47a3d" stroke-width="1.4" stroke-linejoin="round"/>
+          <circle cx="9" cy="9" r="2.5" fill="#c47a3d"/>
+        </svg>
+      </div>
+      <div class="cm-footer__csms-text">
+        <div class="cm-footer__csms-badge">
+          <span class="cm-footer__csms-dot"></span>
+          Managing Partner
+        </div>
+        <div class="cm-footer__csms-title">Coral Seas Mining Services <em>(PNG) Limited</em></div>
+        <div class="cm-footer__csms-sub">The parent company of CorMan JV — PNG's leading drill &amp; blast contractor since 2004.</div>
+      </div>
+    </div>
+    <button class="cm-footer__csms-cta" (click)="goHome()">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <path d="M11 2L2 11M2 11h6M2 11V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to CSMS
+    </button>
+  </div>
+</div>
+
+<footer class="cm-footer" id="cm-contact">
+
+  <!-- Ambient warm glow -->
+  <div class="cm-footer__ambient"></div>
+
+  <div class="cm-footer__inner">
+
+    <!-- Editorial header row -->
+    <div class="cm-footer__header">
+      <div class="cm-footer__header-left">
+        <div class="cm-footer__eyebrow">Contact CorMan</div>
+        <h3 class="cm-footer__heading">
+          Reach the <em>joint venture.</em>
+        </h3>
+      </div>
+      <div class="cm-footer__header-right">
+        <div class="cm-footer__stat">
+          <div class="cm-footer__stat-val">10+</div>
+          <div class="cm-footer__stat-lbl">Years operating</div>
+        </div>
+        <div class="cm-footer__stat-sep"></div>
+        <div class="cm-footer__stat">
+          <div class="cm-footer__stat-val">50/50</div>
+          <div class="cm-footer__stat-lbl">Shareholding</div>
+        </div>
+        <div class="cm-footer__stat-sep"></div>
+        <div class="cm-footer__stat">
+          <div class="cm-footer__stat-val">3</div>
+          <div class="cm-footer__stat-lbl">Bases across PNG</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main grid -->
+    <div class="cm-footer__top">
+
+      <!-- Brand column -->
+      <div class="cm-footer__col cm-footer__col--brand">
+        <div class="cm-footer__brand">
+          <div class="cm-footer__brand-icon">
+            <img width="24" height="24" src="https://img.icons8.com/color/48/group--v1.png" alt=""/>
+          </div>
+          <div class="cm-footer__brand-text">
+            <div class="cm-footer__brand-name">CorMan JV</div>
+            <div class="cm-footer__brand-sub">CorMan Contractors (PNG) Limited</div>
+          </div>
+        </div>
+        <p class="cm-footer__tagline">A 50/50 landowner joint venture between Coral Seas Mining Services and Mananda Umbrella Joint Venture — operating in PNG since 2013.</p>
+
+        <div class="cm-footer__motto">
+          <span class="cm-footer__motto-quote">"</span>
+          Work Safe — Home Safe.
+        </div>
+      </div>
+
+      <!-- Partners column -->
+      <div class="cm-footer__col">
+        <div class="cm-footer__col-label">
+          <span class="cm-footer__col-num">01</span>
+          The Partnership
+        </div>
+        <div class="cm-footer__partner-list">
+          <div class="cm-footer__partner-row">
+            <div class="cm-footer__partner-abbr">CSMS</div>
+            <div class="cm-footer__partner-desc">Coral Seas Mining Services (PNG) Limited</div>
+          </div>
+          <div class="cm-footer__partner-row">
+            <div class="cm-footer__partner-abbr">MUJV</div>
+            <div class="cm-footer__partner-desc">Mananda Umbrella Joint Venture Limited</div>
+          </div>
+        </div>
+
+        <div class="cm-footer__col-label" style="margin-top: 28px;">
+          <span class="cm-footer__col-num">02</span>
+          Navigation
+        </div>
+        <ul class="cm-footer__links">
+          <li><button (click)="scrollTo('cm-hero')">Overview</button></li>
+          <li><button (click)="scrollTo('cm-who')">Who We Are</button></li>
+          <li><button (click)="scrollTo('cm-timeline')">Project Timeline</button></li>
+          <li><button (click)="scrollTo('cm-services')">Services</button></li>
+          <li><button (click)="scrollTo('cm-alliances')">Alliances</button></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="cm-footer__col">
+        <div class="cm-footer__col-label">
+          <span class="cm-footer__col-num">03</span>
+          Get in Touch
+        </div>
+
+        <div class="cm-footer__contact-item">
+          <div class="cm-footer__contact-icon">
+            <img width="20" height="20" src="https://img.icons8.com/clouds/100/apple-phone.png" alt=""/>
+          </div>
+          <div>
+            <div class="cm-footer__contact-label">Phone</div>
+            <a class="cm-footer__contact-val" href="tel:+67579528111">+675 7952 8111</a>
+          </div>
+        </div>
+
+        <div class="cm-footer__contact-item">
+          <div class="cm-footer__contact-icon">
+            <img width="20" height="20" src="https://img.icons8.com/clouds/100/new-post.png" alt=""/>
+          </div>
+          <div>
+            <div class="cm-footer__contact-label">Email</div>
+            <a class="cm-footer__contact-val cm-footer__contact-link"
+               (click)="openMail()"
+               style="cursor: pointer;">
+              admin&#64;cormancontractors.com
+              <span class="cm-footer__link-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="cm-footer__contact-item">
+          <div class="cm-footer__contact-icon">
+            <img width="20" height="20" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
+          </div>
+          <div>
+            <div class="cm-footer__contact-label">Head Office</div>
+            <a class="cm-footer__contact-val cm-footer__contact-link"
+               (click)="openMap('edai')"
+               style="cursor: pointer;">
+              Edai Town, Central Province
+              <span class="cm-footer__link-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="cm-footer__contact-item">
+          <div class="cm-footer__contact-icon">
+            <img width="20" height="20" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
+          </div>
+          <div>
+            <div class="cm-footer__contact-label">Operations Base</div>
+            <a class="cm-footer__contact-val cm-footer__contact-link"
+               (click)="openMap('moro')"
+               style="cursor: pointer;">
+              Moro, Southern Highlands
+              <span class="cm-footer__link-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="cm-footer__contact-item">
+          <div class="cm-footer__contact-icon">
+            <img width="20" height="20" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
+          </div>
+          <div>
+            <div class="cm-footer__contact-label">Logistics Hub</div>
+            <a class="cm-footer__contact-val cm-footer__contact-link"
+               (click)="openMap('lae')"
+               style="cursor: pointer;">
+              Lae, Morobe Province
+              <span class="cm-footer__link-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cm-footer__divider"></div>
+
+    <!-- Bottom bar -->
+    <div class="cm-footer__bottom">
+      <div class="cm-footer__copy">
+        © 2025 <strong>CorMan Contractors (PNG) Limited.</strong> All rights reserved.
+      </div>
+      <div class="cm-footer__certs">
+        <span class="cm-footer__cert-label">Certified:</span>
+        <span class="cm-footer__cert">WHS</span>
+        <span class="cm-footer__cert">NEBOSH</span>
+        <span class="cm-footer__cert">IOGP</span>
+        <span class="cm-footer__cert">PNG Incorporated</span>
+      </div>
+    </div>
+
+  </div>
+</footer>

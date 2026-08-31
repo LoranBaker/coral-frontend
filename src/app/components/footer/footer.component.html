@@ -1,0 +1,217 @@
+<!-- Wave transition: dark section → white footer -->
+<div class="footer__transition">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="footerFade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#14110d"/>
+        <stop offset="60%" stop-color="#3d3830"/>
+        <stop offset="100%" stop-color="#f5f2ec"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="120" fill="url(#footerFade)"/>
+    <path d="M0,0 L0,50 C60,68 130,82 220,70 C300,60 360,88 460,96 C550,104 620,72 700,76 C780,80 840,102 940,96 C1040,90 1100,62 1180,54 C1195,52 1200,55 1200,58 L1200,0 Z" fill="#2a2620" opacity="0.7"/>
+    <path d="M0,0 L0,32 C80,46 170,58 285,50 C375,44 440,66 540,74 C640,82 720,56 820,60 C920,64 1000,82 1100,78 C1165,75 1190,62 1200,60 L1200,0 Z" fill="#1f1c17" opacity="0.85"/>
+    <path d="M0,0 L0,16 C100,28 215,34 335,30 C455,26 535,42 655,44 C775,46 875,30 985,32 C1085,34 1155,44 1200,42 L1200,0 Z" fill="#1a1712"/>
+    <path d="M0,0 L0,6 C150,12 300,8 450,10 C600,12 750,6 900,8 C1050,10 1150,6 1200,6 L1200,0 Z" fill="#14110d"/>
+  </svg>
+</div>
+
+<!-- CorMan JV Banner -->
+<div class="footer__corman-banner">
+  <div class="footer__corman-inner">
+    <div class="footer__corman-left">
+      <div class="footer__corman-icon">
+        <img width="24" height="24" src="https://img.icons8.com/color/48/group--v1.png" alt=""/>
+      </div>
+      <div class="footer__corman-text">
+        <div class="footer__corman-badge">
+          <span class="footer__corman-dot"></span>
+          Landowner Joint Venture · Est. 2013
+        </div>
+        <div class="footer__corman-title">CorMan Contractors <em>(PNG) Limited</em></div>
+        <div class="footer__corman-sub">A 50/50 partnership between MUJV &amp; CSMS — embedding local ownership into every project.</div>
+      </div>
+    </div>
+    <button class="footer__corman-cta" (click)="goToCorman()">
+      Visit CorMan JV
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <path d="M2 11L11 2M11 2H5M11 2v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<footer class="footer" id="contact">
+
+  <!-- Ambient warm glow -->
+  <div class="footer__ambient"></div>
+
+  <div class="footer__inner">
+
+    <!-- Editorial header row -->
+    <div class="footer__header">
+      <div class="footer__header-left">
+        <div class="footer__eyebrow">Get In Touch</div>
+        <h3 class="footer__heading">
+          Let's build <em>together.</em>
+        </h3>
+      </div>
+      <div class="footer__header-right">
+        <div class="footer__stat">
+          <div class="footer__stat-val">20+</div>
+          <div class="footer__stat-lbl">Years in PNG</div>
+        </div>
+        <div class="footer__stat-sep"></div>
+        <div class="footer__stat">
+          <div class="footer__stat-val">50+</div>
+          <div class="footer__stat-lbl">Major projects</div>
+        </div>
+        <div class="footer__stat-sep"></div>
+        <div class="footer__stat">
+          <div class="footer__stat-val">3</div>
+          <div class="footer__stat-lbl">Bases across PNG</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main grid -->
+    <div class="footer__top">
+
+      <!-- Brand column -->
+      <div class="footer__col footer__col--brand">
+        <div class="footer__brand">
+          <div class="footer__brand-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 1L2 5v8l7 4 7-4V5L9 1z" stroke="#1a1712" stroke-width="1.4" stroke-linejoin="round"/>
+              <circle cx="9" cy="9" r="2.5" fill="#c47a3d"/>
+            </svg>
+          </div>
+          <div class="footer__brand-text">
+            <div class="footer__brand-name">CSMS</div>
+            <div class="footer__brand-sub">Coral Seas Mining Services</div>
+          </div>
+        </div>
+        <p class="footer__tagline">Papua New Guinea's leading drill &amp; blast contractor since 2004. Delivering controlled precision to the country's most demanding sites.</p>
+
+        <div class="footer__motto">
+          <span class="footer__motto-quote">"</span>
+          Work Safe — Home Safe.
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="footer__col">
+        <div class="footer__col-label">
+          <span class="footer__col-num">01</span>
+          Navigation
+        </div>
+        <ul class="footer__links">
+          <li><button (click)="scrollTo('home')">Home</button></li>
+          <li><button (click)="scrollTo('about')">About Us</button></li>
+          <li><button (click)="scrollTo('services')">Services</button></li>
+          <li><button (click)="scrollTo('gallery')">Gallery</button></li>
+          <li><button (click)="scrollTo('contact')">Contact</button></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer__col">
+        <div class="footer__col-label">
+          <span class="footer__col-num">02</span>
+          Services
+        </div>
+        <ul class="footer__links">
+          <li><button (click)="scrollTo('services')">Blasting Applications</button></li>
+          <li><button (click)="scrollTo('services')">Civil Construction</button></li>
+          <li><button (click)="scrollTo('services')">Bulk Earthworks</button></li>
+          <li><button (click)="scrollTo('services')">Geotechnical</button></li>
+          <li><button (click)="scrollTo('services')">Plant Hire</button></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer__col">
+        <div class="footer__col-label">
+          <span class="footer__col-num">03</span>
+          Contact
+        </div>
+
+        <div class="footer__contact-item">
+          <div class="footer__contact-icon">
+            <img width="20" height="20" src="https://img.icons8.com/clouds/100/apple-phone.png" alt=""/>
+          </div>
+          <div>
+            <div class="footer__contact-label">Phone</div>
+            <a class="footer__contact-val" href="tel:+67579528111">+675 7952 8111</a>
+          </div>
+        </div>
+
+        <div class="footer__contact-item">
+          <div class="footer__contact-icon">
+            <img width="20" height="20" src="https://img.icons8.com/clouds/100/new-post.png" alt=""/>
+          </div>
+          <div>
+            <div class="footer__contact-label">Email</div>
+            <a class="footer__contact-val footer__contact-link"
+               href="https://mail.google.com/mail/?view=cm&to=csms@coralseamining.com&su=Enquiry%20-%20Coral%20Seas%20Mining%20Services"
+               target="_blank"
+               rel="noopener noreferrer">
+              csms&#64;coralseamining.com
+              <span class="footer__link-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__contact-item">
+          <div class="footer__contact-icon">
+            <img width="20" height="20" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
+          </div>
+          <div>
+            <div class="footer__contact-label">Head Office</div>
+            <a class="footer__contact-val footer__contact-link"
+               href="https://www.google.com/maps/search/?api=1&query=Edai+Town+Central+Province+Papua+New+Guinea"
+               target="_blank"
+               rel="noopener noreferrer">
+              Edai Town, Central Province
+              <span class="footer__link-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__contact-item">
+          <div class="footer__contact-icon">
+            <img width="20" height="20" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
+          </div>
+          <div>
+            <div class="footer__contact-label">Operations Base</div>
+            <a class="footer__contact-val footer__contact-link"
+               href="https://www.google.com/maps/search/?api=1&query=Moro+Southern+Highlands+Papua+New+Guinea"
+               target="_blank"
+               rel="noopener noreferrer">
+              Moro, Southern Highlands
+              <span class="footer__link-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__divider"></div>
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom">
+      <div class="footer__copy">
+        © 2025 <strong>Coral Seas Mining Services (PNG) Limited.</strong> All rights reserved.
+      </div>
+      <div class="footer__certs">
+        <span class="footer__cert-label">Certified:</span>
+        <span class="footer__cert">WHS</span>
+        <span class="footer__cert">NEBOSH</span>
+        <span class="footer__cert">IOGP</span>
+        <span class="footer__cert">PNG Incorporated</span>
+      </div>
+    </div>
+
+  </div>
+</footer>

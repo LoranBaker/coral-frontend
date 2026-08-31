@@ -1,0 +1,317 @@
+// ── Variables (mirrors navbar palette)
+$navy:   #003366;
+$blue:   #00AEEF;
+$dark:   #1c1c1e;
+$text:   #1a2332;
+$muted:  #8a93a2;
+$border: rgba(0, 0, 0, 0.08);
+$white:  #ffffff;
+
+// ── BACKDROP
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  pointer-events: none;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+
+  &--visible {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    pointer-events: all;
+  }
+}
+
+// ── MODAL CARD
+.modal {
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  max-width: 520px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid $border;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
+  opacity: 0;
+  transform: translateY(12px) scale(0.97);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  position: relative;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// ── HEADER  (mirrors .navbar__pill dark bar feel)
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 16px;
+  border-bottom: 1px solid $border;
+}
+
+.modal__brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text;
+  letter-spacing: 0.04em;
+
+  svg { flex-shrink: 0; stroke: $text; }
+}
+
+.modal__close {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  color: $muted;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.06);
+    color: $text;
+  }
+}
+
+// ── BODY
+.modal__body {
+  padding: 20px 20px 24px;
+  transition: opacity 0.2s ease;
+}
+
+.modal__subtitle {
+  font-size: 13px;
+  color: $muted;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+// ── FORM
+.modal__form { display: flex; flex-direction: column; gap: 14px; }
+
+.modal__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.modal__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: $text;
+  letter-spacing: 0.01em;
+}
+
+.modal__input {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: $text;
+  background: #f5f6f8;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+
+  &::placeholder { color: #b0b8c4; }
+
+  &:focus {
+    background: $white;
+    border-color: rgba(0, 174, 239, 0.55);
+    box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.12);
+  }
+
+  &--error {
+    border-color: rgba(220, 53, 69, 0.5);
+    background: #fff5f5;
+
+    &:focus {
+      border-color: rgba(220, 53, 69, 0.7);
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+    }
+  }
+}
+
+.modal__textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.5;
+}
+
+.modal__error {
+  font-size: 11px;
+  color: #dc3545;
+  font-weight: 500;
+}
+
+// ── FOOTER
+.modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+// ── BUTTONS  (mirrors .navbar__cta + .navbar__pill-btn.active)
+.modal__btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 20px;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.15s ease, opacity 0.15s ease;
+  white-space: nowrap;
+
+  &--ghost {
+    background: transparent;
+    color: $muted;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      color: $text;
+    }
+  }
+
+  &--primary {
+    background: $dark;
+    color: $white;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    min-width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    &:hover:not(:disabled) {
+      background: #2a2a2e;
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.65;
+      cursor: default;
+    }
+  }
+
+  &--loading { pointer-events: none; }
+}
+
+// ── SPINNER
+.modal__spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: $white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// ── SUCCESS STATE
+.modal__success {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.97);
+  padding: 32px 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+
+  &--visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.modal__success-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f0fdf4;
+  border: 1.5px solid rgba(34, 197, 94, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #16a34a;
+  margin-bottom: 4px;
+}
+
+.modal__success-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: $text;
+  margin: 0;
+}
+
+.modal__success-body {
+  font-size: 13px;
+  color: $muted;
+  margin: 0 0 8px;
+}
+
+// ── RESPONSIVE
+@media (max-width: 540px) {
+  .modal {
+    border-radius: 18px;
+  }
+
+  .modal__header { padding: 16px; }
+  .modal__body   { padding: 16px; }
+
+  .modal__footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+
+    .modal__btn { width: 100%; justify-content: center; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal, .modal-backdrop, .modal__success { transition: none; }
+  .modal__spinner { animation: none; opacity: 0.6; }
+}

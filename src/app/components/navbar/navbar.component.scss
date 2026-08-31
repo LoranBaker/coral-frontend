@@ -1,0 +1,296 @@
+
+$navy: #003366;
+$blue: #00AEEF;
+
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 24px 0;
+  transition: padding 0.3s ease;
+  pointer-events: none;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; // brand | pill | right
+  pointer-events: all;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 26px;
+}
+
+
+// ── BRAND (left)
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.04em;
+  font-family: 'Inter', sans-serif;
+  pointer-events: all;
+  min-width: 60px;
+  margin-left: 0;
+
+  svg { flex-shrink: 0; stroke: #fff; }
+}
+
+// ── RIGHT: CTA + hamburger
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 60px;
+  justify-content: flex-end;
+  margin-right: 0;
+}
+
+// ── CTA button
+.navbar__cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a2332;
+  background: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 20px;
+  cursor: pointer;
+  pointer-events: all;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  transition: background 0.2s, transform 0.15s;
+
+  &:hover {
+    background: #f0f0f0;
+    transform: translateY(-1px);
+  }
+}
+
+// ── DESKTOP PILL
+.navbar__pill {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: #1c1c1e;
+  border-radius: 999px;
+  padding: 4px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.navbar__pill-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
+  }
+
+  &.active {
+    background: rgba(255,255,255,0.96);
+    color: #101828;
+    font-weight: 600;
+    box-shadow: 0 8px 22px rgba(255,255,255,0.2);
+    transform: translateY(-1px);
+  }
+}
+
+// ── HAMBURGER BUTTON (mobile only, hidden by default)
+// ── HAMBURGER BUTTON (mobile only, hidden by default)
+// ── HAMBURGER BUTTON (mobile only, hidden by default)
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  pointer-events: all;
+  margin-top: 8px;       // ← added top margin
+  transition: background 0.2s;
+
+  span {
+    display: block;
+    width: 15px;
+    height: 2px;
+    background: #1c1c1e;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease, width 0.25s ease;
+    transform-origin: center;
+  }
+
+  &.open {
+  background: #ffffff;           // ← white bg when open (was dark)
+  span { background: #1c1c1e; } // ← black lines for X (was white)
+
+  span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  span:nth-child(2) { opacity: 0; width: 0; }
+  span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+&:hover { background: #f0f0f0; } // stays light
+}
+
+// ── MOBILE DROPDOWN MENU (hidden by default)
+// ── MOBILE DROPDOWN MENU
+.navbar__mobile-menu {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  width: calc(100% - 32px);
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.97); // ← white (was dark)
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08); // ← subtle dark border
+  border-radius: 18px;
+  margin-top: 10px;
+  pointer-events: all;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding: 0 6px;
+  transform: translateY(-8px) scale(0.97);
+  transition: max-height 0.3s ease, opacity 0.25s ease, transform 0.25s ease, padding 0.25s ease;
+
+  &--open {
+    max-height: 400px;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    padding: 6px;
+  }
+}
+
+.navbar__mobile-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a2332;                          // ← dark text (was white)
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);      // ← light hover
+    color: #000;
+  }
+
+  &.active {
+    background: rgba(0, 0, 0, 0.07);      // ← subtle active
+    color: #000;
+    font-weight: 600;
+  }
+
+  &--corman {
+    margin-top: 4px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08); // ← dark divider
+    padding-top: 14px;
+    color: #8a93a2;                             // ← muted dark
+  }
+}
+
+// ── SCROLLED STATE
+.navbar--scrolled {
+  padding-top: 16px;
+  .navbar__brand { color: rgba(255,255,255,0.9); }
+
+  .navbar__pill {
+    background: rgba(10, 20, 10, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+
+  .navbar__hamburger {
+    background: rgba(255, 255, 255, 0.9); // ← keep white when scrolled
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,0,0,0.08);   // ← subtle dark border
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  }
+}
+
+// ── RESPONSIVE: tablet
+@media (max-width: 900px) {
+  .navbar { padding: 20px 24px 0; }
+  .navbar--scrolled { padding-top: 12px; }
+}
+
+// ── RESPONSIVE: mobile — THIS IS THE KEY BLOCK THAT WAS MISSING
+@media (max-width: 680px) {
+  .navbar { padding: 16px 16px 0; }
+  .navbar--scrolled { padding-top: 12px; }
+
+  .navbar__inner {
+    position: relative;
+    min-height: 44px;
+    padding: 0 14px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .navbar__brand {
+    justify-self: start;
+  }
+
+  .navbar__right {
+    position: relative;
+    z-index: 2;
+    justify-content: flex-end;
+    min-width: 96px;
+    margin-right: 0;
+    justify-self: end;
+  }
+
+  // hide the desktop pill
+  .navbar__pill--desktop { display: none; }
+
+  // center hamburger between brand and CTA
+  .navbar__hamburger {
+    display: flex;
+    justify-self: center;
+    margin-top: 0;
+    z-index: 1;
+    position: static;
+    transform: none;
+  }
+
+  // allow the mobile menu to render
+  .navbar__mobile-menu { display: flex; }
+}

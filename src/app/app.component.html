@@ -1,0 +1,7 @@
+<div class="page-bg">
+  <div class="page-container">
+    <app-navbar (getInTouch)="modal.open()"></app-navbar>
+    <app-contact-modal #modal></app-contact-modal>
+    <router-outlet></router-outlet>
+  </div>
+</div>

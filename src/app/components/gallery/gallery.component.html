@@ -1,0 +1,110 @@
+<section class="gallery" id="gallery">
+
+  <!-- Header -->
+  <div class="gallery__inner">
+    <div class="gallery__header">
+      <div class="gallery__header-left">
+        <div class="gallery__eyebrow">In the Field</div>
+        <h2 class="gallery__heading">
+          CSMS at work —<br>
+          <em>where others won't go.</em>
+        </h2>
+      </div>
+      <div class="gallery__header-right">
+        <p class="gallery__sub">Real footage from PNG's toughest terrain — controlled blasts, remote well pads, and construction at 2,500m altitude.</p>
+        <div class="gallery__filters">
+          <button class="gallery__filter" [class.active]="filter() === 'all'"   (click)="setFilter('all')">All</button>
+          <button class="gallery__filter" [class.active]="filter() === 'ops'"   (click)="setFilter('ops')">Operations</button>
+          <button class="gallery__filter" [class.active]="filter() === 'blast'" (click)="setFilter('blast')">Blasting</button>
+          <button class="gallery__filter" [class.active]="filter() === 'video'" (click)="setFilter('video')">Videos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slider -->
+  <div class="gallery__slider"
+       (touchstart)="onTouchStart($event)"
+       (touchend)="onTouchEnd($event)">
+    <div class="gallery__track-wrap">
+      <div class="gallery__track" [style.transform]="trackOffset()">
+
+        @for (slide of filteredSlides(); track slide.title; let i = $index) {
+          <div class="gslide">
+            <span class="gslide__ghost">0{{ i + 1 }}</span>
+
+            <div class="gslide__bg" [style.background]="slide.bgColor">
+              <span class="gslide__icon">{{ slide.icon }}</span>
+            </div>
+            <div class="gslide__overlay"></div>
+
+            @if (slide.isVideo) {
+              <div class="gslide__type">Video</div>
+              <div class="gslide__play">
+                <div class="gslide__play-btn">▶</div>
+              </div>
+            }
+
+            @if (slide.location) {
+              <div class="gslide__location">{{ slide.location }}</div>
+            }
+
+            <div class="gslide__caption">
+              <div class="gslide__eyebrow">
+                <span class="gslide__counter">Frame {{ i + 1 }} / {{ total() }}</span>
+              </div>
+              <div class="gslide__title">{{ slide.title }}</div>
+              <div class="gslide__sub">{{ slide.sub }}</div>
+              <div class="gslide__tags">
+                @for (tag of slide.tags; track tag.label) {
+                  <span [class]="getTagClass(tag.type)">{{ tag.label }}</span>
+                }
+              </div>
+            </div>
+          </div>
+        }
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="gallery__controls">
+    <div class="gallery__dots">
+      @for (slide of filteredSlides(); track slide.title; let i = $index) {
+        <button class="gallery__dot" [class.active]="currentIndex() === i" (click)="goTo(i)"></button>
+      }
+    </div>
+    <div class="gallery__count">
+      <span>{{ currentIndex() + 1 }}</span> of {{ total() }}
+    </div>
+    <div class="gallery__arrows">
+      <button class="gallery__arrow" [disabled]="isPrev()" (click)="prev()">←</button>
+      <button class="gallery__arrow" [disabled]="isNext()" (click)="next()">→</button>
+    </div>
+  </div>
+
+  <!-- Thumbnails -->
+  <div class="gallery__thumbs">
+    @for (slide of filteredSlides(); track slide.title; let i = $index) {
+      <div class="gallery__thumb"
+           [class.active]="currentIndex() === i"
+           [style.background]="slide.bgColor"
+           (click)="goTo(i)">
+        {{ slide.icon }}
+      </div>
+    }
+  </div>
+
+  <!-- Trust footer -->
+  <div class="gallery__footer">
+    <div class="gallery__footer-text">
+      <strong>50+ major projects delivered</strong> · Across coastal, highland &amp; remote PNG
+    </div>
+    <button class="gallery__footer-cta">
+      View Full Project List
+      <span>→</span>
+    </button>
+  </div>
+
+</section>

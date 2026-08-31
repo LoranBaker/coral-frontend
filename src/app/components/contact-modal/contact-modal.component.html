@@ -1,0 +1,123 @@
+<div class="modal-backdrop" [class.modal-backdrop--visible]="isOpen()" (click)="onBackdropClick($event)">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" [class.modal--visible]="isOpen()">
+
+    <!-- Header -->
+    <div class="modal__header">
+      <div class="modal__brand">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+          <path d="M9 1L2 5v8l7 4 7-4V5L9 1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <circle cx="9" cy="9" r="2.5" fill="currentColor"/>
+        </svg>
+        <span>Get in Touch</span>
+      </div>
+      <button class="modal__close" (click)="close()" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="modal__body">
+      <p class="modal__subtitle">We'll get back to you within one business day.</p>
+
+      <form class="modal__form" (ngSubmit)="onSubmit()" #contactForm="ngForm" novalidate>
+
+        <!-- Row: Name + Company -->
+        <div class="modal__row">
+          <div class="modal__field">
+            <label class="modal__label" for="m-name">Full name</label>
+            <input
+              id="m-name"
+              class="modal__input"
+              type="text"
+              name="name"
+              placeholder="Jane Smith"
+              [(ngModel)]="form.name"
+              required
+              #nameRef="ngModel"
+              [class.modal__input--error]="nameRef.invalid && nameRef.touched"
+            />
+            <span class="modal__error" *ngIf="nameRef.invalid && nameRef.touched">Required</span>
+          </div>
+
+          <div class="modal__field">
+            <label class="modal__label" for="m-company">Company</label>
+            <input
+              id="m-company"
+              class="modal__input"
+              type="text"
+              name="company"
+              placeholder="Acme Corp"
+              [(ngModel)]="form.company"
+            />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="modal__field">
+          <label class="modal__label" for="m-email">Email</label>
+          <input
+            id="m-email"
+            class="modal__input"
+            type="email"
+            name="email"
+            placeholder="jane@acme.com"
+            [(ngModel)]="form.email"
+            required
+            email
+            #emailRef="ngModel"
+            [class.modal__input--error]="emailRef.invalid && emailRef.touched"
+          />
+          <span class="modal__error" *ngIf="emailRef.errors?.['required'] && emailRef.touched">Required</span>
+          <span class="modal__error" *ngIf="emailRef.errors?.['email'] && emailRef.touched">Enter a valid email</span>
+        </div>
+
+        <!-- Message -->
+        <div class="modal__field">
+          <label class="modal__label" for="m-message">Message</label>
+          <textarea
+            id="m-message"
+            class="modal__input modal__textarea"
+            name="message"
+            placeholder="Tell us about your project..."
+            [(ngModel)]="form.message"
+            required
+            #messageRef="ngModel"
+            [class.modal__input--error]="messageRef.invalid && messageRef.touched"
+            rows="4"
+          ></textarea>
+          <span class="modal__error" *ngIf="messageRef.invalid && messageRef.touched">Required</span>
+        </div>
+
+        <!-- Footer -->
+        <div class="modal__footer">
+          <button type="button" class="modal__btn modal__btn--ghost" (click)="close()">Cancel</button>
+          <button
+            type="submit"
+            class="modal__btn modal__btn--primary"
+            [class.modal__btn--loading]="isSubmitting()"
+            [disabled]="isSubmitting()"
+          >
+            <span *ngIf="!isSubmitting()">Send message</span>
+            <span *ngIf="isSubmitting()" class="modal__spinner"></span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Success state -->
+    <div class="modal__success" [class.modal__success--visible]="submitted()">
+      <div class="modal__success-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M4 11l5 5 9-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="modal__success-title">Message sent</p>
+      <p class="modal__success-body">We'll be in touch soon.</p>
+      <button class="modal__btn modal__btn--ghost" (click)="close()">Close</button>
+    </div>
+
+  </div>
+</div>

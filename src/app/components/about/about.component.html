@@ -1,0 +1,247 @@
+<section class="about" id="about">
+
+  <!-- Ambient background layers -->
+  <div class="about__bg"></div>
+  <div class="about__glow"></div>
+
+  <div class="about__inner">
+
+    <!-- Section header -->
+    <div class="about__header">
+      <div class="about__eyebrow">About CSMS</div>
+      <h2 class="about__heading">
+        Twenty years <em>rooted</em><br>
+        in Papua New Guinea.
+      </h2>
+      <p class="about__lede">A PNG-incorporated drill &amp; blast contractor delivering controlled precision to the country's most demanding sites — from coastal quarries to highland well pads at altitude.</p>
+    </div>
+
+    <!-- Main body: sidebar + panels -->
+    <div class="about__body">
+
+      <!-- SIDEBAR NAV -->
+      <nav class="about__sidebar">
+        <button class="about__tab" [class.active]="activeTab === 'who'" (click)="setTab('who')">
+          <span class="about__tab-icon">
+            <img width="24" height="24" src="https://img.icons8.com/3d-fluency/94/workers.png" alt=""/>
+          </span>
+          <span class="about__tab-label">
+            <span class="about__tab-num">01</span>
+            Who We Are
+          </span>
+          <span class="about__tab-indicator"></span>
+        </button>
+        <button class="about__tab" [class.active]="activeTab === 'safety'" (click)="setTab('safety')">
+          <span class="about__tab-icon">
+            <img width="24" height="24" src="https://img.icons8.com/arcade/64/safety-hat.png" alt=""/>
+          </span>
+          <span class="about__tab-label">
+            <span class="about__tab-num">02</span>
+            Safety &amp; Environment
+          </span>
+          <span class="about__tab-indicator"></span>
+        </button>
+        <button class="about__tab" [class.active]="activeTab === 'community'" (click)="setTab('community')">
+          <span class="about__tab-icon">
+            <img width="24" height="24" src="https://img.icons8.com/color/48/group--v1.png" alt=""/>
+          </span>
+          <span class="about__tab-label">
+            <span class="about__tab-num">03</span>
+            Community
+          </span>
+          <span class="about__tab-indicator"></span>
+        </button>
+        <button class="about__tab" [class.active]="activeTab === 'locations'" (click)="setTab('locations')">
+          <span class="about__tab-icon">
+            <img width="24" height="24" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
+          </span>
+          <span class="about__tab-label">
+            <span class="about__tab-num">04</span>
+            Locations
+          </span>
+          <span class="about__tab-indicator"></span>
+        </button>
+
+        <!-- Sidebar footer stat -->
+        <div class="about__sidebar-stat">
+          <div class="about__sidebar-stat-val">2004</div>
+          <div class="about__sidebar-stat-lbl">Established in PNG</div>
+        </div>
+      </nav>
+
+      <!-- PANELS -->
+      <div class="about__panels">
+
+        <!-- WHO WE ARE -->
+        <div class="about__panel" [class.active]="activeTab === 'who'">
+          <span class="about__ghost">01</span>
+          <div class="about__panel-eyebrow">
+            <span class="about__pulse-dot"></span>
+            Chapter One
+          </div>
+          <h3 class="about__panel-heading">Who <em>we are.</em></h3>
+          <p class="about__panel-body">A Papua New Guinea-incorporated company operating since 2004. Recognised as a leading drill &amp; blast contractor in PNG, we specialise in controlled blasting, remote site construction, and specialist earthworks — bringing precision and safety to the most demanding environments.</p>
+
+          <div class="about__services">
+            <div class="about__service-item">
+              <div class="about__service-num">A</div>
+              <span class="about__service-text">Controlled blasting in greenfield and brownfield sites</span>
+            </div>
+            <div class="about__service-item">
+              <div class="about__service-num">B</div>
+              <span class="about__service-text">Construction of remote site works — well pads, roads and camps</span>
+            </div>
+            <div class="about__service-item">
+              <div class="about__service-num">C</div>
+              <span class="about__service-text">Specialist quarrying and earthworks with minimal environmental disturbance</span>
+            </div>
+            <div class="about__service-item">
+              <div class="about__service-num">D</div>
+              <span class="about__service-text">Geotechnical works including rock bolting and micro-piling</span>
+            </div>
+          </div>
+
+          <button class="about__cta">
+            Explore Our Services
+            <span class="about__cta-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- SAFETY -->
+        <div class="about__panel" [class.active]="activeTab === 'safety'">
+          <span class="about__ghost">02</span>
+          <div class="about__panel-eyebrow">
+            <span class="about__pulse-dot"></span>
+            Chapter Two
+          </div>
+          <h3 class="about__panel-heading">Safety &amp; <em>environment.</em></h3>
+          <p class="about__panel-body">The health and safety of our employees, contractors and the public is our top priority — with an unwavering commitment to <strong>zero harm</strong> across every site we operate.</p>
+
+          <div class="about__safety-grid">
+            <div class="about__safety-item">
+              <span class="about__safety-num">01</span>
+              <span class="about__safety-text">Complying with WHS, NEBOSH and IOGP standards</span>
+            </div>
+            <div class="about__safety-item">
+              <span class="about__safety-num">02</span>
+              <span class="about__safety-text">Robust EHS management system and competency verification</span>
+            </div>
+            <div class="about__safety-item">
+              <span class="about__safety-num">03</span>
+              <span class="about__safety-text">Regular EHS inspections and risk assessments</span>
+            </div>
+            <div class="about__safety-item">
+              <span class="about__safety-num">04</span>
+              <span class="about__safety-text">Investigating incidents and implementing corrective actions</span>
+            </div>
+            <div class="about__safety-item">
+              <span class="about__safety-num">05</span>
+              <span class="about__safety-text">Integrating our safety plans with those of our clients</span>
+            </div>
+          </div>
+
+          <div class="about__award">
+            <div class="about__award-icon-wrap">🏆</div>
+            <div class="about__award-content">
+              <div class="about__award-tag">Recognition</div>
+              <div class="about__award-title">2010 IFO Award — Oil Search Limited</div>
+              <div class="about__award-sub">International Field-Based Contractor of the Year</div>
+            </div>
+          </div>
+
+          <div class="about__motto">
+            <span class="about__motto-quote">"</span>
+            Work Safe — Home Safe.
+          </div>
+        </div>
+
+        <!-- COMMUNITY -->
+        <div class="about__panel" [class.active]="activeTab === 'community'">
+          <span class="about__ghost">03</span>
+          <div class="about__panel-eyebrow">
+            <span class="about__pulse-dot"></span>
+            Chapter Three
+          </div>
+          <h3 class="about__panel-heading">Rooted in <em>community.</em></h3>
+          <p class="about__panel-body">Local community engagement is fundamental to our success. CSMS has established deep landowner partnerships across every project region in Papua New Guinea.</p>
+
+          <div class="about__jv-card">
+            <div class="about__jv-header">
+              <div class="about__jv-icon">
+                <img width="28" height="28" src="https://img.icons8.com/color/48/group--v1.png" alt=""/>
+              </div>
+              <div class="about__jv-badge">Landowner JV · Est. 2013</div>
+            </div>
+            <div class="about__jv-title">CorMan Contractors — Mananda Umbrella JV</div>
+            <div class="about__jv-body">Established in 2013, our joint venture with Mananda Umbrella Joint Venture created CorMan Contractors (PNG) Limited — embedding local community ownership directly into our operations. We continue to expand local content participation as we grow across PNG.</div>
+
+            <div class="about__jv-stats">
+              <div class="about__jv-stat">
+                <div class="about__jv-stat-val">50/50</div>
+                <div class="about__jv-stat-lbl">Shareholding</div>
+              </div>
+              <div class="about__jv-stat-sep"></div>
+              <div class="about__jv-stat">
+                <div class="about__jv-stat-val">2013</div>
+                <div class="about__jv-stat-lbl">Incorporated</div>
+              </div>
+              <div class="about__jv-stat-sep"></div>
+              <div class="about__jv-stat">
+                <div class="about__jv-stat-val">100%</div>
+                <div class="about__jv-stat-lbl">Local content</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="about__cta">
+            Learn about CorMan JV
+            <span class="about__cta-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- LOCATIONS -->
+        <div class="about__panel" [class.active]="activeTab === 'locations'">
+          <span class="about__ghost">04</span>
+          <div class="about__panel-eyebrow">
+            <span class="about__pulse-dot"></span>
+            Chapter Four
+          </div>
+          <h3 class="about__panel-heading">Our <em>locations.</em></h3>
+          <p class="about__panel-body">Three strategic bases across Papua New Guinea, positioned to support operations from coast to highland.</p>
+
+          <div class="about__locations">
+            <div class="about__location" *ngFor="let loc of locations; let i = index">
+              <div class="about__location-num">0{{ i + 1 }}</div>
+              <div class="about__location-map">
+                <iframe
+                  [src]="loc.mapUrl"
+                  [title]="loc.name"
+                  style="border:none;"
+                  loading="lazy"
+                  allowfullscreen
+                ></iframe>
+                <div class="about__location-overlay"></div>
+              </div>
+              <div class="about__location-info">
+                <div class="about__location-role-tag">
+                  <span class="about__location-dot"></span>
+                  {{ loc.role }}
+                </div>
+                <div class="about__location-name">{{ loc.name }}</div>
+                <div class="about__location-sub">{{ loc.sub }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Grass transition at the bottom (going into next dark section) -->
+  <svg class="about__grass" viewBox="0 0 1200 100" preserveAspectRatio="none">
+    <path d="M0,100 L0,50 C80,34 170,22 285,32 C375,40 440,16 540,8 C640,0 720,28 820,24 C920,20 1000,4 1100,8 C1165,11 1190,26 1200,28 L1200,100 Z" fill="#0d2e14" opacity="0.7"/>
+    <path d="M0,100 L0,72 C100,58 215,50 335,56 C455,62 535,44 655,42 C775,40 875,58 985,56 C1085,54 1155,44 1200,46 L1200,100 Z" fill="#071808"/>
+  </svg>
+
+</section>
