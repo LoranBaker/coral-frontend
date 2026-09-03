@@ -1,11 +1,11 @@
 $navy:   #003366;
 $blue:   #00AEEF;
 $orange: #F58220;
-$copper: #c47a3d;
-$brass:  #d4a574;
-$ink:    #1a1712;
-$stone:  #6b5f4d;
-$paper:  #f5f2ec;
+$copper: #00AEEF;
+$brass:  #00AEEF;
+$ink:    #003366;
+$stone:  #4d6781;
+$paper:  #eef9ff;
 
 // ── WAVE TRANSITION
 .footer__transition {
@@ -24,8 +24,8 @@ $paper:  #f5f2ec;
 
 // ── CORMAN JV BANNER (light warm stone strip between transition and footer)
 .footer__corman-banner {
-  background: linear-gradient(180deg, $paper 0%, #ede8dd 100%);
-  border-bottom: 1px solid rgba(196, 122, 61, 0.15);
+  background: linear-gradient(180deg, $paper 0%, #dfefff 100%);
+  border-bottom: 1px solid rgba(0, 174, 239, 0.2);
   padding: 0 64px;
   position: relative;
   overflow: hidden;
@@ -39,9 +39,9 @@ $paper:  #f5f2ec;
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(196, 122, 61, 0.6) 30%,
-      rgba(212, 165, 116, 0.7) 50%,
-      rgba(196, 122, 61, 0.6) 70%,
+      rgba(0, 174, 239, 0.75) 30%,
+      rgba(245, 130, 32, 0.8) 50%,
+      rgba(0, 174, 239, 0.75) 70%,
       transparent 100%
     );
     z-index: 2;
@@ -68,8 +68,8 @@ $paper:  #f5f2ec;
 .footer__corman-icon {
   width: 52px; height: 52px;
   border-radius: 14px;
-  background: rgba(196, 122, 61, 0.12);
-  border: 1px solid rgba(196, 122, 61, 0.3);
+  background: rgba(0, 174, 239, 0.12);
+  border: 1px solid rgba(0, 174, 239, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +93,7 @@ $paper:  #f5f2ec;
   width: 6px; height: 6px;
   border-radius: 50%;
   background: $copper;
-  box-shadow: 0 0 0 2px rgba(196, 122, 61, 0.3);
+  box-shadow: 0 0 0 2px rgba(0, 174, 239, 0.3);
   animation: footerPulse 2s ease-in-out infinite;
 }
 
@@ -151,7 +151,7 @@ $paper:  #f5f2ec;
     background: $copper;
     border-color: $copper;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(196, 122, 61, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 174, 239, 0.25);
 
     svg { transform: translate(2px, -2px); }
   }
@@ -171,8 +171,8 @@ $paper:  #f5f2ec;
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 50% 40% at 10% 20%, rgba(196, 122, 61, 0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 45% 55% at 90% 80%, rgba(212, 165, 116, 0.06) 0%, transparent 70%);
+    radial-gradient(ellipse 50% 40% at 10% 20%, rgba(0, 174, 239, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 55% at 90% 80%, rgba(245, 130, 32, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -270,7 +270,7 @@ $paper:  #f5f2ec;
 .footer__stat-sep {
   width: 1px;
   height: 32px;
-  background: rgba(196, 122, 61, 0.2);
+  background: rgba(0, 174, 239, 0.2);
   flex-shrink: 0;
   margin: 0 4px;
 }
@@ -297,13 +297,22 @@ $paper:  #f5f2ec;
 
 .footer__brand-icon {
   width: 40px; height: 40px;
-  background: rgba(196, 122, 61, 0.1);
-  border: 1px solid rgba(196, 122, 61, 0.3);
+  background: rgba(0, 174, 239, 0.1);
+  border: 1px solid rgba(0, 174, 239, 0.3);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 4px;
+    box-sizing: border-box;
+    object-fit: contain;
+  }
 }
 
 .footer__brand-name {
@@ -339,7 +348,7 @@ $paper:  #f5f2ec;
   font-weight: 700;
   color: $ink;
   padding: 16px 20px;
-  background: rgba(196, 122, 61, 0.08);
+  background: rgba(0, 174, 239, 0.08);
   border-left: 3px solid $copper;
   border-radius: 0 12px 12px 0;
   display: flex;
@@ -435,8 +444,8 @@ $paper:  #f5f2ec;
 .footer__contact-icon {
   width: 36px; height: 36px;
   border-radius: 10px;
-  background: rgba(196, 122, 61, 0.08);
-  border: 1px solid rgba(196, 122, 61, 0.2);
+  background: rgba(0, 174, 239, 0.08);
+  border: 1px solid rgba(0, 174, 239, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -538,16 +547,16 @@ $paper:  #f5f2ec;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: $copper;
-  background: rgba(196, 122, 61, 0.08);
-  border: 1px solid rgba(196, 122, 61, 0.25);
+  background: rgba(0, 174, 239, 0.08);
+  border: 1px solid rgba(0, 174, 239, 0.25);
   border-radius: 6px;
   padding: 4px 10px;
   text-transform: uppercase;
   transition: all 0.2s ease;
 
   &:hover {
-    background: rgba(196, 122, 61, 0.15);
-    border-color: rgba(196, 122, 61, 0.4);
+    background: rgba(0, 174, 239, 0.15);
+    border-color: rgba(0, 174, 239, 0.4);
   }
 }
 

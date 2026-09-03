@@ -133,4 +133,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.activeSection.set('corman');
     this.router.navigate(['/corman-jv']);
   }
+
+  goHome() {
+    this.router.navigate(['/']);
+  }
 }

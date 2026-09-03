@@ -3,43 +3,45 @@ $blue:   #00AEEF;
 $orange: #F58220;
 $copper: #c47a3d;
 $brass:  #d4a574;
+$ink:    #003366;
 
 .services {
   position: relative;
   overflow: hidden;
   background: linear-gradient(
     180deg,
-    #14110d 0%,        // matches about bottom
-    #1a1712 15%,
-    #1f1c17 30%,
-    #2a2620 55%,
-    #1f1c17 80%,
-    #14110d 100%       // deep warm charcoal
+    #edf9ff 0%,
+    #dff5ff 10%,
+    #cfefff 18%,
+    #003366 36%,
+    #002a52 58%,
+    #001f3b 82%,
+    #00172d 100%
   );
   padding: 120px 64px 96px;
 
-  // Warm copper + subtle blue ambient glow
+  // Blue/orange ambient glow
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 70% at 80% 20%, rgba(196, 122, 61, 0.1) 0%, transparent 70%),
-      radial-gradient(ellipse 45% 55% at 15% 75%, rgba(212, 165, 116, 0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 60% 50%, rgba(0, 174, 239, 0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 35% 30% at 90% 80%, rgba(245, 130, 32, 0.05) 0%, transparent 60%);
+      radial-gradient(ellipse 60% 70% at 80% 20%, rgba(245, 130, 32, 0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 45% 55% at 15% 75%, rgba(0, 174, 239, 0.14) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 60% 50%, rgba(0, 174, 239, 0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 35% 30% at 90% 80%, rgba(245, 130, 32, 0.1) 0%, transparent 60%);
     pointer-events: none;
     z-index: 1;
   }
 
-  // Warm copper-toned grid overlay (engineering blueprint feel)
+  // Blue-toned grid overlay
   &::after {
     content: '';
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(212, 165, 116, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(212, 165, 116, 0.02) 1px, transparent 1px);
+      linear-gradient(rgba(0, 174, 239, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 174, 239, 0.04) 1px, transparent 1px);
     background-size: 60px 60px;
     pointer-events: none;
     z-index: 1;
@@ -99,13 +101,13 @@ $brass:  #d4a574;
   font-family: 'Playfair Display', serif;
   font-size: clamp(32px, 4.2vw, 60px);
   font-weight: 700;
-  color: #fff;
+  color: $ink;
   line-height: 1.05;
   letter-spacing: -0.025em;
 
   em {
     font-style: italic;
-    color: rgba(255,255,255,0.38);
+    color: $ink;
   }
 }
 
@@ -119,7 +121,7 @@ $brass:  #d4a574;
 .services__sub {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: rgba(255,255,255,0.55);
+  color: $ink;
   line-height: 1.75;
   max-width: 380px;
   text-align: right;
@@ -138,18 +140,19 @@ $brass:  #d4a574;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: rgba(255,255,255,0.65);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  background: $ink;
+  border: 1px solid $ink;
   border-radius: 999px;
   padding: 6px 14px;
   backdrop-filter: blur(8px);
   transition: all 0.2s ease;
 
    &:hover {
-    background: rgba(196, 122, 61, 0.12);
-    border-color: rgba(196, 122, 61, 0.4);
+    background: rgba(0, 51, 102, 0.75);
+    border-color: $ink;
     color: #fff;
+    box-shadow: 0 4px 16px rgba(0, 51, 102, 0.3);
   }
 }
 
@@ -278,8 +281,8 @@ $brass:  #d4a574;
 
 // Icon well — circular tinted container (matches hero badge dot pattern)
 .srv__icon-well {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 14px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
@@ -525,6 +528,129 @@ $brass:  #d4a574;
   }
 }
 
+.services__client-ticker {
+  margin-top: 52px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.services__client-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $blue;
+}
+
+.services__client-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $orange;
+  box-shadow: 0 0 0 2px rgba(245,130,32,0.3);
+}
+
+.services__ticker-outer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.services__ticker-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+
+  &--left { left: 0; background: linear-gradient(to right, #003366, transparent); }
+  &--right { right: 0; background: linear-gradient(to left, #003366, transparent); }
+}
+
+.services__ticker-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  padding: 8px 16px;
+  animation: servicesTicker 24s linear infinite;
+
+  &:hover { animation-play-state: paused; }
+}
+
+@keyframes servicesTicker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.services__ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  min-height: 62px;
+  padding: 12px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.services__ticker-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.services__ticker-av {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(0,174,239,0.12);
+  border: 1px solid rgba(0,174,239,0.25);
+  color: $blue;
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 700;
+
+  img {
+    display: block;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+  }
+}
+
+.services__ticker-av--oil-search { background: #0d5c2e; color: #fff; }
+.services__ticker-av--clough { background: #2d2d6e; color: #fff; }
+
+.services__ticker-name {
+  margin-bottom: 2px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.services__ticker-sector {
+  color: rgba(255,255,255,0.4);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+}
+
 // ── RESPONSIVE
 @media (max-width: 1100px) {
   .services { padding: 80px 36px 72px; }
@@ -568,6 +694,7 @@ $brass:  #d4a574;
     align-items: flex-start;
   }
   .services__footer-stats { gap: 24px; }
+  .services__client-ticker { margin-top: 40px; }
 }
 
 @media (max-width: 520px) {

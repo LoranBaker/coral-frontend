@@ -3,21 +3,21 @@
   <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="cmFooterFade" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#14110d"/>
-        <stop offset="60%" stop-color="#3d3830"/>
-        <stop offset="100%" stop-color="#f5f2ec"/>
+        <stop offset="0%" stop-color="#00172d"/>
+        <stop offset="60%" stop-color="#003366"/>
+        <stop offset="100%" stop-color="#eef9ff"/>
       </linearGradient>
     </defs>
     <rect width="1200" height="120" fill="url(#cmFooterFade)"/>
-    <path d="M0,0 L0,50 C60,68 130,82 220,70 C300,60 360,88 460,96 C550,104 620,72 700,76 C780,80 840,102 940,96 C1040,90 1100,62 1180,54 C1195,52 1200,55 1200,58 L1200,0 Z" fill="#2a2620" opacity="0.7"/>
-    <path d="M0,0 L0,32 C80,46 170,58 285,50 C375,44 440,66 540,74 C640,82 720,56 820,60 C920,64 1000,82 1100,78 C1165,75 1190,62 1200,60 L1200,0 Z" fill="#1f1c17" opacity="0.85"/>
-    <path d="M0,0 L0,16 C100,28 215,34 335,30 C455,26 535,42 655,44 C775,46 875,30 985,32 C1085,34 1155,44 1200,42 L1200,0 Z" fill="#1a1712"/>
-    <path d="M0,0 L0,6 C150,12 300,8 450,10 C600,12 750,6 900,8 C1050,10 1150,6 1200,6 L1200,0 Z" fill="#14110d"/>
+    <path d="M0,0 L0,50 C60,68 130,82 220,70 C300,60 360,88 460,96 C550,104 620,72 700,76 C780,80 840,102 940,96 C1040,90 1100,62 1180,54 C1195,52 1200,55 1200,58 L1200,0 Z" fill="#002a52" opacity="0.7"/>
+    <path d="M0,0 L0,32 C80,46 170,58 285,50 C375,44 440,66 540,74 C640,82 720,56 820,60 C920,64 1000,82 1100,78 C1165,75 1190,62 1200,60 L1200,0 Z" fill="#003366" opacity="0.85"/>
+    <path d="M0,0 L0,16 C100,28 215,34 335,30 C455,26 535,42 655,44 C775,46 875,30 985,32 C1085,34 1155,44 1200,42 L1200,0 Z" fill="#001f3b"/>
+    <path d="M0,0 L0,6 C150,12 300,8 450,10 C600,12 750,6 900,8 C1050,10 1150,6 1200,6 L1200,0 Z" fill="#00172d"/>
   </svg>
 </div>
 
 <!-- Back to CSMS Banner (replaces the CorMan banner) -->
-<div class="cm-footer__csms-banner">
+<!-- <div class="cm-footer__csms-banner">
   <div class="cm-footer__csms-inner">
     <div class="cm-footer__csms-left">
       <div class="cm-footer__csms-icon">
@@ -42,7 +42,7 @@
       Back to CSMS
     </button>
   </div>
-</div>
+</div> -->
 
 <footer class="cm-footer" id="cm-contact">
 
@@ -107,11 +107,15 @@
         </div>
         <div class="cm-footer__partner-list">
           <div class="cm-footer__partner-row">
-            <div class="cm-footer__partner-abbr">CSMS</div>
+            <div class="cm-footer__partner-logo">
+              <img src="/assets/logo.png" alt="Coral Seas Mining Services logo" />
+            </div>
             <div class="cm-footer__partner-desc">Coral Seas Mining Services (PNG) Limited</div>
           </div>
           <div class="cm-footer__partner-row">
-            <div class="cm-footer__partner-abbr">MUJV</div>
+            <div class="cm-footer__partner-logo">
+              <img src="/assets/mananda.jpg" alt="Mananda Umbrella Joint Venture logo" />
+            </div>
             <div class="cm-footer__partner-desc">Mananda Umbrella Joint Venture Limited</div>
           </div>
         </div>
@@ -138,7 +142,7 @@
 
         <div class="cm-footer__contact-item">
           <div class="cm-footer__contact-icon">
-            <img width="20" height="20" src="https://img.icons8.com/clouds/100/apple-phone.png" alt=""/>
+            <img width="36" height="36" src="https://img.icons8.com/clouds/100/apple-phone.png" alt=""/>
           </div>
           <div>
             <div class="cm-footer__contact-label">Phone</div>
@@ -148,7 +152,7 @@
 
         <div class="cm-footer__contact-item">
           <div class="cm-footer__contact-icon">
-            <img width="20" height="20" src="https://img.icons8.com/clouds/100/new-post.png" alt=""/>
+            <img width="36" height="36" src="https://img.icons8.com/clouds/100/new-post.png" alt=""/>
           </div>
           <div>
             <div class="cm-footer__contact-label">Email</div>
@@ -163,14 +167,14 @@
 
         <div class="cm-footer__contact-item">
           <div class="cm-footer__contact-icon">
-            <img width="20" height="20" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
+            <img width="36" height="36" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
           </div>
           <div>
             <div class="cm-footer__contact-label">Head Office</div>
             <a class="cm-footer__contact-val cm-footer__contact-link"
                (click)="openMap('edai')"
                style="cursor: pointer;">
-              Edai Town, Central Province
+              Port Moresby NCDC
               <span class="cm-footer__link-arrow">↗</span>
             </a>
           </div>
@@ -178,7 +182,7 @@
 
         <div class="cm-footer__contact-item">
           <div class="cm-footer__contact-icon">
-            <img width="20" height="20" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
+            <img width="36" height="36" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
           </div>
           <div>
             <div class="cm-footer__contact-label">Operations Base</div>
@@ -193,7 +197,7 @@
 
         <div class="cm-footer__contact-item">
           <div class="cm-footer__contact-icon">
-            <img width="20" height="20" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
+            <img width="36" height="36" src="https://img.icons8.com/lollipop/48/location.png" alt=""/>
           </div>
           <div>
             <div class="cm-footer__contact-label">Logistics Hub</div>
@@ -215,13 +219,6 @@
     <div class="cm-footer__bottom">
       <div class="cm-footer__copy">
         © 2025 <strong>CorMan Contractors (PNG) Limited.</strong> All rights reserved.
-      </div>
-      <div class="cm-footer__certs">
-        <span class="cm-footer__cert-label">Certified:</span>
-        <span class="cm-footer__cert">WHS</span>
-        <span class="cm-footer__cert">NEBOSH</span>
-        <span class="cm-footer__cert">IOGP</span>
-        <span class="cm-footer__cert">PNG Incorporated</span>
       </div>
     </div>
 

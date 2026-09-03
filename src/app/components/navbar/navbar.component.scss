@@ -32,21 +32,44 @@ $blue: #00AEEF;
 }
 
 
-// ── BRAND (left)
 .navbar__brand {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 0.04em;
-  font-family: 'Inter', sans-serif;
-  pointer-events: all;
   min-width: 60px;
   margin-left: 0;
+  pointer-events: all;
 
-  svg { flex-shrink: 0; stroke: #fff; }
+  img {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+}
+
+.navbar__back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 9px 16px;
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 999px;
+  color: #1a2332;
+  background: rgba(255,255,255,0.95);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  transition: background 0.2s, transform 0.15s;
+
+  span { font-size: 16px; line-height: 1; }
+
+  &:hover {
+    background: #fff;
+    transform: translateY(-1px);
+  }
 }
 
 // ── RIGHT: CTA + hamburger

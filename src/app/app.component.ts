@@ -10,5 +10,5 @@ import { ContactModalComponent } from './components/contact-modal/contact-modal.
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'coral-frontend';
+  title = 'coral-seas-mining-service';
 }
