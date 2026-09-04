@@ -839,7 +839,11 @@ $ink:    #003366;
 
 @media (max-width: 520px) {
   .services { padding: 48px 20px 40px; }
-  .services__grass { display: none; }
+  .services__grass {
+    display: block;
+    top: -28px;
+    height: 72px;
+  }
   .services__grid { grid-template-columns: 1fr; }
   .srv { grid-column: span 1; }
   .srv--wide { grid-column: span 1; }
