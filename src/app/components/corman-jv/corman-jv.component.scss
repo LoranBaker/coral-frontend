@@ -755,6 +755,8 @@ $ink:    #003366;
 
 .cm-srv {
   position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 240px;
   padding: 34px 30px;
   background: linear-gradient(
@@ -877,16 +879,43 @@ $ink:    #003366;
 
 @media (hover: none) {
   .cm-srv__media {
-    opacity: 0.2;
+    opacity: 0.7;
 
     img {
-      transform: scale(1.04);
-      filter: grayscale(0.4) brightness(0.55);
+      transform: scale(1.12);
+      filter: grayscale(0.2) brightness(0.65) saturate(1.1);
     }
   }
 
   .cm-srv__media-overlay {
-    background: linear-gradient(180deg, rgba(0,23,45,0.72), rgba(0,23,45,0.88));
+    background:
+      linear-gradient(180deg, rgba(0,23,45,0.45) 0%, rgba(0,23,45,0.2) 42%, rgba(0,23,45,0.88) 100%),
+      linear-gradient(135deg, rgba(196,122,61,0.22), transparent 58%);
+  }
+
+  .cm-srv--revealed {
+    &::before,
+    &::after {
+      opacity: 0;
+    }
+
+    .cm-srv__media {
+      opacity: 1;
+
+      img {
+        transform: scale(1);
+        filter: none;
+      }
+    }
+
+    .cm-srv__media-overlay {
+      background: transparent;
+    }
+
+    .cm-srv__title,
+    .cm-srv__body {
+      text-shadow: 0 2px 8px rgba(0,0,0,0.75);
+    }
   }
 }
 
@@ -936,6 +965,7 @@ $ink:    #003366;
   font-weight: 700;
   color: #fff;
   line-height: 1.35;
+  margin-top: auto;
   letter-spacing: -0.005em;
   position: relative;
   z-index: 2;

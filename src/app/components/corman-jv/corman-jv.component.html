@@ -238,7 +238,7 @@
     </div>
 
     <div class="cm-services__grid-cards">
-      <div class="cm-srv">
+      <div class="cm-srv" [class.cm-srv--revealed]="revealedService === 0" (click)="toggleServiceImage(0)">
         <div class="cm-srv__media"><img src="/assets/companyimg/11..jpg" alt="" loading="lazy"><div class="cm-srv__media-overlay"></div></div>
         <span class="cm-srv__ghost">01</span>
         <div class="cm-srv__icon-well">
@@ -248,7 +248,7 @@
         <div class="cm-srv__title">Integrated Project Management &amp; Construction Supervision</div>
       </div>
 
-      <div class="cm-srv">
+      <div class="cm-srv" [class.cm-srv--revealed]="revealedService === 1" (click)="toggleServiceImage(1)">
         <div class="cm-srv__media"><img src="/assets/companyimg/26..JPG" alt="" loading="lazy"><div class="cm-srv__media-overlay"></div></div>
         <span class="cm-srv__ghost">02</span>
         <div class="cm-srv__icon-well">
@@ -258,7 +258,7 @@
         <div class="cm-srv__title">Blasting Applications &amp; Licensed Explosives Supply</div>
       </div>
 
-      <div class="cm-srv">
+      <div class="cm-srv" [class.cm-srv--revealed]="revealedService === 2" (click)="toggleServiceImage(2)">
         <div class="cm-srv__media"><img src="/assets/companyimg/25..jpg" alt="" loading="lazy"><div class="cm-srv__media-overlay"></div></div>
         <span class="cm-srv__ghost">03</span>
         <div class="cm-srv__icon-well">
@@ -268,7 +268,7 @@
         <div class="cm-srv__title">Bulk Earthworks</div>
       </div>
 
-      <div class="cm-srv">
+      <div class="cm-srv" [class.cm-srv--revealed]="revealedService === 3" (click)="toggleServiceImage(3)">
         <div class="cm-srv__media"><img src="/assets/companyimg/13..jpeg" alt="" loading="lazy"><div class="cm-srv__media-overlay"></div></div>
         <span class="cm-srv__ghost">04</span>
         <div class="cm-srv__icon-well">
@@ -278,7 +278,7 @@
         <div class="cm-srv__title">Well-Pad Construction — Remote Works Specialists</div>
       </div>
 
-      <div class="cm-srv">
+      <div class="cm-srv" [class.cm-srv--revealed]="revealedService === 4" (click)="toggleServiceImage(4)">
         <div class="cm-srv__media"><img src="/assets/companyimg/16..jpeg" alt="" loading="lazy"><div class="cm-srv__media-overlay"></div></div>
         <span class="cm-srv__ghost">05</span>
         <div class="cm-srv__icon-well">
@@ -288,7 +288,7 @@
         <div class="cm-srv__title">Road &amp; Infrastructure Civil Construction</div>
       </div>
 
-      <div class="cm-srv">
+      <div class="cm-srv" [class.cm-srv--revealed]="revealedService === 5" (click)="toggleServiceImage(5)">
         <div class="cm-srv__media"><img src="/assets/companyimg/24..jpg" alt="" loading="lazy"><div class="cm-srv__media-overlay"></div></div>
         <span class="cm-srv__ghost">06</span>
         <div class="cm-srv__icon-well">
@@ -298,7 +298,7 @@
         <div class="cm-srv__title">Quarry Management &amp; Extraction</div>
       </div>
 
-      <div class="cm-srv">
+      <div class="cm-srv" [class.cm-srv--revealed]="revealedService === 6" (click)="toggleServiceImage(6)">
         <div class="cm-srv__media"><img src="/assets/companyimg/12..JPG" alt="" loading="lazy"><div class="cm-srv__media-overlay"></div></div>
         <span class="cm-srv__ghost">07</span>
         <div class="cm-srv__icon-well">
@@ -308,7 +308,7 @@
         <div class="cm-srv__title">Anchor Drilling, Rock Bolting, Micro-Piles &amp; Grouting</div>
       </div>
 
-      <div class="cm-srv">
+      <div class="cm-srv" [class.cm-srv--revealed]="revealedService === 7" (click)="toggleServiceImage(7)">
         <div class="cm-srv__media"><img src="/assets/companyimg/15..jpeg" alt="" loading="lazy"><div class="cm-srv__media-overlay"></div></div>
         <span class="cm-srv__ghost">08</span>
         <div class="cm-srv__icon-well">
@@ -318,7 +318,7 @@
         <div class="cm-srv__title">Camp Construction, Maintenance &amp; Operation</div>
       </div>
 
-      <div class="cm-srv">
+      <div class="cm-srv" [class.cm-srv--revealed]="revealedService === 8" (click)="toggleServiceImage(8)">
         <div class="cm-srv__media"><img src="/assets/companyimg/14..jpeg" alt="" loading="lazy"><div class="cm-srv__media-overlay"></div></div>
         <span class="cm-srv__ghost">09</span>
         <div class="cm-srv__icon-well">

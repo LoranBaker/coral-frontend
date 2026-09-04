@@ -12,7 +12,13 @@ import { CormanFooterComponent } from '../corman-footer/corman-footer.component'
   styleUrls: ['./corman-jv.component.scss']
 })
 export class CormanJvComponent {
+  revealedService: number | null = null;
+
   constructor(private router: Router) {}
+
+  toggleServiceImage(serviceIndex: number) {
+    this.revealedService = this.revealedService === serviceIndex ? null : serviceIndex;
+  }
 
   goHome() {
     this.router.navigate(['/']);
