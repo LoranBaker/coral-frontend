@@ -10,10 +10,10 @@
     <div class="about__header">
       <div class="about__eyebrow">About CSMS</div>
       <h2 class="about__heading">
-        Twenty years <em>rooted</em><br>
+        Twenty years <em>plus</em><br>
         in Papua New Guinea.
       </h2>
-      <p class="about__lede">A PNG-incorporated drill &amp; blast contractor delivering controlled precision to the country's most demanding sites — from coastal quarries to highland well pads at altitude.</p>
+      <p class="about__lede">A PNG-incorporated drill &amp; blast contractor delivering controlled precision to the country's most demanding sites — from  quarries to remote  well pads and access roads.</p>
     </div>
 
     <!-- Main body: sidebar + panels -->
@@ -64,7 +64,7 @@
 
         <!-- Sidebar footer stat -->
         <div class="about__sidebar-stat">
-          <div class="about__sidebar-stat-val">2003</div>
+          <div class="about__sidebar-stat-val">2004</div>
           <div class="about__sidebar-stat-lbl">Established in PNG</div>
         </div>
       </nav>
@@ -81,6 +81,15 @@
           </div>
           <h3 class="about__panel-heading">Who <em>we are.</em></h3>
           <p class="about__panel-body">A Papua New Guinea-incorporated company operating since 2004. Recognised as a leading drill &amp; blast contractor in PNG, we specialise in controlled blasting, remote site construction, and specialist earthworks — bringing precision and safety to the most demanding environments.</p>
+
+          <div class="about__image-placeholder about__image-slider" aria-label="Who We Are images">
+            <img class="about__panel-image" [src]="whoImages[whoImageIndex].src" [alt]="whoImages[whoImageIndex].alt" />
+            <button class="about__slider-button about__slider-button--previous" type="button" aria-label="Previous Who We Are image" (click)="previousImage('who')"><span class="about__slider-chevron" aria-hidden="true"></span></button>
+            <button class="about__slider-button about__slider-button--next" type="button" aria-label="Next Who We Are image" (click)="nextImage('who')"><span class="about__slider-chevron" aria-hidden="true"></span></button>
+            <div class="about__slider-dots" aria-label="Choose Who We Are image">
+              <button *ngFor="let image of whoImages; let i = index" class="about__slider-dot" [class.active]="whoImageIndex === i" type="button" [attr.aria-label]="'Show Who We Are image ' + (i + 1)" [attr.aria-pressed]="whoImageIndex === i" (click)="selectImage('who', i)"></button>
+            </div>
+          </div>
 
           <div class="about__services">
             <div class="about__service-item">
@@ -116,6 +125,15 @@
           </div>
           <h3 class="about__panel-heading">Safety &amp; <em>environment.</em></h3>
           <p class="about__panel-body">The health and safety of our employees, contractors and the public is our top priority — with an unwavering commitment to <strong>zero harm</strong> across every site we operate.</p>
+
+          <div class="about__image-placeholder about__image-slider" aria-label="Safety and Environment images">
+            <img class="about__panel-image" [src]="safetyImages[safetyImageIndex].src" [alt]="safetyImages[safetyImageIndex].alt" />
+            <button class="about__slider-button about__slider-button--previous" type="button" aria-label="Previous Safety and Environment image" (click)="previousImage('safety')"><span class="about__slider-chevron" aria-hidden="true"></span></button>
+            <button class="about__slider-button about__slider-button--next" type="button" aria-label="Next Safety and Environment image" (click)="nextImage('safety')"><span class="about__slider-chevron" aria-hidden="true"></span></button>
+            <div class="about__slider-dots" aria-label="Choose Safety and Environment image">
+              <button *ngFor="let image of safetyImages; let i = index" class="about__slider-dot" [class.active]="safetyImageIndex === i" type="button" [attr.aria-label]="'Show Safety and Environment image ' + (i + 1)" [attr.aria-pressed]="safetyImageIndex === i" (click)="selectImage('safety', i)"></button>
+            </div>
+          </div>
 
           <div class="about__safety-grid">
             <div class="about__safety-item">
@@ -165,10 +183,19 @@
           <h3 class="about__panel-heading">Community and <em>local partnerships.</em></h3>
           <p class="about__panel-body">Local community engagement is fundamental to our success. CSMS has established deep landowner partnerships across every project region in Papua New Guinea.</p>
 
+          <div class="about__image-placeholder about__image-slider" aria-label="Community images">
+            <img class="about__panel-image" [src]="communityImages[communityImageIndex].src" [alt]="communityImages[communityImageIndex].alt" />
+            <button class="about__slider-button about__slider-button--previous" type="button" aria-label="Previous Community image" (click)="previousImage('community')"><span class="about__slider-chevron" aria-hidden="true"></span></button>
+            <button class="about__slider-button about__slider-button--next" type="button" aria-label="Next Community image" (click)="nextImage('community')"><span class="about__slider-chevron" aria-hidden="true"></span></button>
+            <div class="about__slider-dots" aria-label="Choose Community image">
+              <button *ngFor="let image of communityImages; let i = index" class="about__slider-dot" [class.active]="communityImageIndex === i" type="button" [attr.aria-label]="'Show Community image ' + (i + 1)" [attr.aria-pressed]="communityImageIndex === i" (click)="selectImage('community', i)"></button>
+            </div>
+          </div>
+
           <div class="about__jv-card">
             <div class="about__jv-header">
               <div class="about__jv-icon">
-                <img width="28" height="28" src="https://img.icons8.com/color/48/group--v1.png" alt=""/>
+                <img width="28" height="28" src="assets/corman-logo.jpg" alt=""/>
               </div>
               <div class="about__jv-badge">Landowner JV · Est. 2013</div>
             </div>

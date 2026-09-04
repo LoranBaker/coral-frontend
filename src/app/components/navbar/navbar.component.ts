@@ -30,6 +30,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.isCormanPage.set(isCorman);
         this.activeSection.set(isCorman ? 'corman' : 'home');
         this.closeMenu();              // ← close menu on route change
+
+        if (isCorman || url === '/') {
+          this.resetViewportAfterNavigation();
+        }
       }
     });
     this.syncRouteState();
@@ -136,5 +140,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   goHome() {
     this.router.navigate(['/']);
+  }
+
+  private resetViewportAfterNavigation() {
+    if (typeof window === 'undefined') return;
+
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
   }
 }

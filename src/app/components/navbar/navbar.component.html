@@ -17,7 +17,6 @@
       <button class="navbar__pill-btn" [class.active]="activeSection() === 'home'"     (click)="navigateToSection('home')">Home</button>
       <button class="navbar__pill-btn" [class.active]="activeSection() === 'about'"    (click)="navigateToSection('about')">About Us</button>
       <button class="navbar__pill-btn" [class.active]="activeSection() === 'services'" (click)="navigateToSection('services')">Services</button>
-      <button class="navbar__pill-btn" [class.active]="activeSection() === 'gallery'"  (click)="navigateToSection('gallery')">Gallery</button>
       <button class="navbar__pill-btn" [class.active]="activeSection() === 'contact'"  (click)="navigateToSection('contact')">Contact</button>
       <button class="navbar__pill-btn navbar__pill-btn--corman" [class.active]="isCormanPage()" (click)="goToCorman()">CorMan JV</button>
     </div>

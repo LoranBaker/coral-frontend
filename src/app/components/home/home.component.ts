@@ -9,12 +9,11 @@ import { CormanTeaserComponent } from '../corman-teaser/corman-teaser.component'
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, AboutComponent, ServicesComponent, GalleryComponent, CormanTeaserComponent, FooterComponent],
+  imports: [HeroComponent, AboutComponent, ServicesComponent, CormanTeaserComponent, FooterComponent],
   template: `
     <app-hero></app-hero>
     <app-about></app-about>
     <app-services></app-services>
-    <app-gallery></app-gallery>
     <app-corman-teaser></app-corman-teaser>
     <app-footer></app-footer>
   `

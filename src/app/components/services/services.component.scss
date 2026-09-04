@@ -262,6 +262,146 @@ $ink:    #003366;
   }
 }
 
+// ── HOVER-REVEAL PHOTO LAYER
+.srv__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.18);
+    filter: grayscale(0.35) brightness(0.7) saturate(1.1);
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                filter 0.5s ease;
+  }
+}
+
+// Gradient tint over the image — copper/navy blend, keeps text readable
+.srv__media-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(10,14,20,0.55) 0%,
+      rgba(10,14,20,0.15) 45%,
+      rgba(10,14,20,0.75) 100%
+    ),
+    linear-gradient(135deg,
+      rgba(196,122,61,0.25) 0%,
+      transparent 55%
+    );
+}
+
+// Card content needs to sit above the media layer
+.srv__icon-well,
+.srv__accent,
+.srv__title,
+.srv__body,
+.srv__meta,
+.srv__pill {
+  position: relative;
+  z-index: 2;
+}
+
+.srv__left,
+.srv__right {
+  position: relative;
+  z-index: 2;
+}
+
+// ── HOVER STATE: reveal the photo, retreat the icon
+.srv:hover {
+  .srv__media {
+    opacity: 1;
+    pointer-events: auto;
+
+    img {
+      transform: scale(1);
+      filter: grayscale(0.1) brightness(0.85) saturate(1.15);
+    }
+  }
+
+  .srv__icon-well {
+    opacity: 0;
+    transform: scale(0.75) translateY(-4px);
+  }
+
+  .srv__ghost {
+    opacity: 0.16;
+    color: #fff;
+    mix-blend-mode: overlay;
+  }
+
+  .srv__body {
+    color: rgba(255,255,255,0.85);
+  }
+
+  .srv__title {
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+}
+
+.srv__icon-well {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+// ── WIDE CARD: media spans the full card, both columns float above it
+.srv--wide {
+  .srv__media { border-radius: inherit; }
+
+  &:hover .srv__media img {
+    filter: grayscale(0.05) brightness(0.8) saturate(1.2);
+  }
+}
+
+// ── TALL CARD: slightly stronger darken since it's a narrower column
+.srv--tall {
+  .srv__media-overlay {
+    background:
+      linear-gradient(180deg,
+        rgba(10,14,20,0.6) 0%,
+        rgba(10,14,20,0.2) 40%,
+        rgba(10,14,20,0.85) 100%
+      ),
+      linear-gradient(135deg,
+        rgba(196,122,61,0.28) 0%,
+        transparent 55%
+      );
+  }
+}
+
+// ── MOBILE / TOUCH FALLBACK
+// Hover doesn't exist on touch — reveal a subtle static version instead
+// so mobile users still get the photo texture, just less dramatic
+@media (hover: none) {
+  .srv__media {
+    opacity: 0.22;
+    pointer-events: none;
+
+    img {
+      transform: scale(1.05);
+      filter: grayscale(0.5) brightness(0.55);
+    }
+  }
+
+  .srv__media-overlay {
+    background:
+      linear-gradient(180deg,
+        rgba(10,14,20,0.7) 0%,
+        rgba(10,14,20,0.3) 45%,
+        rgba(10,14,20,0.85) 100%
+      );
+  }
+}
+
 // Ghost numeral — signature editorial element
 .srv__ghost {
   position: absolute;

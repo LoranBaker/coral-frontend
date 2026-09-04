@@ -73,11 +73,31 @@ $ink:    #003366;
   position: absolute;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
   background:
     radial-gradient(ellipse 60% 50% at 20% 30%, rgba(196, 122, 61, 0.15) 0%, transparent 70%),
     radial-gradient(ellipse 50% 60% at 85% 70%, rgba(212, 165, 116, 0.1) 0%, transparent 70%),
     radial-gradient(ellipse 40% 30% at 60% 50%, rgba(0, 174, 239, 0.08) 0%, transparent 70%);
   pointer-events: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0, 23, 45, 0.68) 0%, rgba(0, 42, 82, 0.28) 42%, rgba(0, 23, 45, 0.72) 100%),
+      linear-gradient(90deg, rgba(0, 23, 45, 0.28), transparent 45%, rgba(0, 23, 45, 0.22));
+  }
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.82;
+    filter: saturate(0.88) contrast(1.06);
+  }
 }
 
 .cm-hero__ambient {
@@ -117,7 +137,7 @@ $ink:    #003366;
   position: relative;
   z-index: 4;
   height: 120px;
-  margin-top: -90px;
+  margin-top: 0;
   overflow: hidden;
   background: #00172d;
   line-height: 0;
@@ -168,6 +188,7 @@ $ink:    #003366;
   line-height: 1.05;
   letter-spacing: -0.03em;
   margin: 0 0 24px;
+  text-shadow: 0 3px 22px rgba(0, 23, 45, 0.72);
 
   em {
     font-style: italic;
@@ -182,6 +203,7 @@ $ink:    #003366;
   line-height: 1.75;
   max-width: 680px;
   margin: 0 0 40px;
+  text-shadow: 0 2px 12px rgba(0, 23, 45, 0.9);
 }
 
 // ── PARTNERS CARD (× symbol between MUJV and CSMS)
@@ -728,12 +750,13 @@ $ink:    #003366;
 .cm-services__grid-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 18px;
 }
 
 .cm-srv {
   position: relative;
-  padding: 28px 24px;
+  min-height: 240px;
+  padding: 34px 30px;
   background: linear-gradient(
     145deg,
     rgba(255, 255, 255, 0.05) 0%,
@@ -744,6 +767,17 @@ $ink:    #003366;
   overflow: hidden;
   transition: all 0.3s ease;
   backdrop-filter: blur(8px);
+  animation: cmServiceSlideIn 0.65s cubic-bezier(0.2, 0.75, 0.3, 1) both;
+
+  &:nth-child(1) { animation-delay: 0.05s; }
+  &:nth-child(2) { animation-delay: 0.12s; }
+  &:nth-child(3) { animation-delay: 0.19s; }
+  &:nth-child(4) { animation-delay: 0.26s; }
+  &:nth-child(5) { animation-delay: 0.33s; }
+  &:nth-child(6) { animation-delay: 0.40s; }
+  &:nth-child(7) { animation-delay: 0.47s; }
+  &:nth-child(8) { animation-delay: 0.54s; }
+  &:nth-child(9) { animation-delay: 0.61s; }
 
   &::before {
     content: '';
@@ -776,6 +810,83 @@ $ink:    #003366;
       border-color: rgba(196, 122, 61, 0.4);
       background: rgba(196, 122, 61, 0.12);
     }
+
+    .cm-srv__media {
+      opacity: 1;
+    }
+
+    .cm-srv__title {
+      text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+    }
+
+    .cm-srv__body {
+      color: rgba(255,255,255,0.85);
+    }
+  }
+}
+
+.cm-srv__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transform: scale(1.12);
+    filter: grayscale(0.2) brightness(0.65) saturate(1.1);
+    transition: transform 0.65s ease, filter 0.45s ease;
+  }
+}
+
+@keyframes cmServiceSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cm-srv {
+    animation: none;
+  }
+}
+
+.cm-srv__media-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,23,45,0.45) 0%, rgba(0,23,45,0.2) 42%, rgba(0,23,45,0.88) 100%),
+    linear-gradient(135deg, rgba(196,122,61,0.22), transparent 58%);
+}
+
+.cm-srv:hover .cm-srv__media img {
+  transform: scale(1);
+  filter: grayscale(0.05) brightness(0.82) saturate(1.15);
+}
+
+@media (hover: none) {
+  .cm-srv__media {
+    opacity: 0.2;
+
+    img {
+      transform: scale(1.04);
+      filter: grayscale(0.4) brightness(0.55);
+    }
+  }
+
+  .cm-srv__media-overlay {
+    background: linear-gradient(180deg, rgba(0,23,45,0.72), rgba(0,23,45,0.88));
   }
 }
 
