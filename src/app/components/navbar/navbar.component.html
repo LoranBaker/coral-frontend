@@ -3,10 +3,7 @@
 
     <!-- Brand (left) -->
     <div class="navbar__brand">
-      <button *ngIf="isCormanPage(); else csmsBrand" class="navbar__back-btn" (click)="goHome()">
-        <span aria-hidden="true">←</span>
-        Back to CSMS
-      </button>
+      <img *ngIf="isCormanPage(); else csmsBrand" src="/assets/corman-logo.png" alt="CorMan Contractors logo" class="navbar__brand-logo navbar__brand-logo--corman" />
       <ng-template #csmsBrand>
         <img src="/assets/logo.png" alt="Company Logo" class="navbar__brand-logo" />
       </ng-template>
@@ -18,7 +15,9 @@
       <button class="navbar__pill-btn" [class.active]="activeSection() === 'about'"    (click)="navigateToSection('about')">About Us</button>
       <button class="navbar__pill-btn" [class.active]="activeSection() === 'services'" (click)="navigateToSection('services')">Services</button>
       <button class="navbar__pill-btn" [class.active]="activeSection() === 'contact'"  (click)="navigateToSection('contact')">Contact</button>
-      <button class="navbar__pill-btn navbar__pill-btn--corman" [class.active]="isCormanPage()" (click)="goToCorman()">CorMan JV</button>
+      <button class="navbar__pill-btn navbar__pill-btn--corman" (click)="isCormanPage() ? goHome() : goToCorman()">
+        {{ isCormanPage() ? 'CSMS' : 'CorMan JV' }}
+      </button>
     </div>
 
     <!-- Hamburger (center on mobile) -->
@@ -42,6 +41,8 @@
     <button class="navbar__mobile-btn" [class.active]="activeSection() === 'services'" (click)="navigateToSection('services'); closeMenu()">Services</button>
     <button class="navbar__mobile-btn" [class.active]="activeSection() === 'gallery'"  (click)="navigateToSection('gallery');  closeMenu()">Gallery</button>
     <button class="navbar__mobile-btn" [class.active]="activeSection() === 'contact'"  (click)="navigateToSection('contact');  closeMenu()">Contact</button>
-    <button class="navbar__mobile-btn navbar__mobile-btn--corman" [class.active]="isCormanPage()" (click)="goToCorman(); closeMenu()">CorMan JV</button>
+    <button class="navbar__mobile-btn navbar__mobile-btn--corman" (click)="isCormanPage() ? goHome() : goToCorman(); closeMenu()">
+      {{ isCormanPage() ? 'CSMS' : 'CorMan JV' }}
+    </button>
   </div>
 </nav>

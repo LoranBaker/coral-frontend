@@ -44,6 +44,11 @@ $blue: #00AEEF;
     width: auto;
     display: block;
   }
+
+  .navbar__brand-logo--corman {
+    width: 40px;
+    object-fit: contain;
+  }
 }
 
 .navbar__back-btn {

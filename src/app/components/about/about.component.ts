@@ -14,7 +14,7 @@ export class AboutComponent {
 
   whoImages = [
     { src: '/assets/10.jpg', alt: 'Coral Seas Mining Services drilling operations' },
-    { src: '/assets/companyimg/16..jpeg', alt: 'Coral Seas Mining Services field operations' },
+    { src: '/assets/companyimg/13..jpeg', alt: 'Coral Seas Mining Services field operations' },
     { src: '/assets/companyimg/12..JPG', alt: 'Coral Seas Mining Services project site' }
   ];
   safetyImages = [

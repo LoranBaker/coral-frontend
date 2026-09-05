@@ -17,6 +17,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   menuOpen      = signal(false);        // ← added
 
   private readonly sections = ['home', 'about', 'services', 'gallery', 'contact'];
+  private readonly cormanSectionTargets: Record<string, string> = {
+    home: 'corman-home',
+    about: 'corman-about',
+    services: 'corman-services',
+    contact: 'corman-contact'
+  };
   private observer?: IntersectionObserver;
   @Output() getInTouch = new EventEmitter<void>();
   constructor(private router: Router) {}
@@ -28,8 +34,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
         const url = event.urlAfterRedirects || event.url;
         const isCorman = url === '/corman-jv';
         this.isCormanPage.set(isCorman);
-        this.activeSection.set(isCorman ? 'corman' : 'home');
+        this.activeSection.set('home');
         this.closeMenu();              // ← close menu on route change
+        if (typeof window !== 'undefined') {
+          requestAnimationFrame(() => this.setupObserver());
+        } else {
+          this.setupObserver();
+        }
 
         if (isCorman || url === '/') {
           this.resetViewportAfterNavigation();
@@ -59,7 +70,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private setupObserver() {
     if (typeof window === 'undefined' || typeof document === 'undefined') return;
 
-    const elements = this.sections
+    this.observer?.disconnect();
+
+    const sectionTargets = this.isCormanPage()
+      ? Object.values(this.cormanSectionTargets)
+      : this.sections;
+    const elements = sectionTargets
       .map(id => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el);
 
@@ -71,7 +87,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
       if (visible.length > 0) {
-        this.activeSection.set(visible[0].target.id);
+        const targetId = visible[0].target.id;
+        const sectionId = this.isCormanPage()
+          ? Object.entries(this.cormanSectionTargets).find(([, id]) => id === targetId)?.[0]
+          : targetId;
+
+        if (sectionId) this.activeSection.set(sectionId);
       }
     }, {
       root: null,
@@ -86,7 +107,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     const url = this.router.url;
     const isCorman = url === '/corman-jv';
     this.isCormanPage.set(isCorman);
-    this.activeSection.set(isCorman ? 'corman' : 'home');
+    this.activeSection.set('home');
   }
 
   private updateScrollState() {
@@ -105,21 +126,26 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   }
 
-  scrollTo(sectionId: string) {
+  scrollTo(sectionId: string, activeSectionId = sectionId) {
     if (typeof document === 'undefined') return;
 
     const el = document.getElementById(sectionId);
     if (!el) return;
 
-    this.activeSection.set(sectionId);
+    this.activeSection.set(activeSectionId);
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     setTimeout(() => {
-      this.activeSection.set(sectionId);
+      this.activeSection.set(activeSectionId);
     }, 250);
   }
 
   navigateToSection(sectionId: string) {
+    if (this.isCormanPage()) {
+      this.scrollTo(this.cormanSectionTargets[sectionId] ?? 'corman-home', sectionId);
+      return;
+    }
+
     const currentPath = this.router.url;
 
     if (currentPath !== '/' && currentPath !== '') {
