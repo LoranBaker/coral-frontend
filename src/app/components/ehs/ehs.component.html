@@ -1,0 +1,123 @@
+<section class="ehs" id="ehs">
+
+  <!-- Wave divider — absolutely positioned inside the section so it always spans full width -->
+  <svg class="ehs__wave" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,0 L0,50 C60,68 130,82 220,70 C300,60 360,88 460,96 C550,104 620,72 700,76 C780,80 840,102 940,96 C1040,90 1100,62 1180,54 C1195,52 1200,55 1200,58 L1200,0 Z"
+          fill="#002a52" opacity="0.55"/>
+    <path d="M0,0 L0,32 C80,46 170,58 285,50 C375,44 440,66 540,74 C640,82 720,56 820,60 C920,64 1000,82 1100,78 C1165,75 1190,62 1200,60 L1200,0 Z"
+          fill="#001f3b" opacity="0.85"/>
+    <path d="M0,0 L0,16 C100,28 215,34 335,30 C455,26 535,42 655,44 C775,46 875,30 985,32 C1085,34 1155,44 1200,42 L1200,0 Z"
+          fill="#00172d"/>
+  </svg>
+
+  <div class="ehs__inner">
+
+    <!-- Header -->
+    <header class="ehs__header">
+      <div class="ehs__header-left">
+        <p class="ehs__eyebrow">Our Commitment</p>
+        <h2 class="ehs__heading">
+          Environmental Health<br>
+          &amp; <em>Safety</em>.
+        </h2>
+      </div>
+      <div class="ehs__header-right">
+        <p class="ehs__sub">
+          Our top priority is the Environmental Health and Safety of our employees,
+          contractors, and the public &mdash; delivered through a goal of zero harm
+          on every project.
+        </p>
+        <ul class="ehs__tags">
+          <li class="ehs__tag">Zero Harm</li>
+          <li class="ehs__tag">WHS</li>
+          <li class="ehs__tag">NEBOSH</li>
+          <li class="ehs__tag">IOGP</li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Photo band, motto carried on the lead frame -->
+    <div class="ehs__band">
+      <figure class="ehs-shot ehs-shot--lead">
+        <img [src]="shots[0].src" [alt]="shots[0].alt" loading="lazy" decoding="async"/>
+        <figcaption class="ehs-shot__motto">
+          <span class="ehs-shot__quote">Work Safe, Home Safe</span>
+          <span class="ehs-shot__cap">{{ shots[0].caption }}</span>
+        </figcaption>
+      </figure>
+
+      @for (shot of shots.slice(1); track shot.src) {
+        <figure class="ehs-shot">
+          <img [src]="shot.src" [alt]="shot.alt" loading="lazy" decoding="async"/>
+          <figcaption class="ehs-shot__cap ehs-shot__cap--solo">{{ shot.caption }}</figcaption>
+        </figure>
+      }
+    </div>
+
+    <!-- Two pillars -->
+    <div class="ehs__pillars">
+
+      <article class="ehs-pillar ehs-pillar--env">
+        <p class="ehs-pillar__label">Environment</p>
+        <h3 class="ehs-pillar__title">Protecting the environment and the communities around us</h3>
+        <p class="ehs-pillar__body">
+          We work through consultation and engagement at village level &mdash; through our own
+          representation, or alongside the client's &mdash; so that people living near a site know
+          what is happening on it before work starts.
+        </p>
+        <p class="ehs-pillar__foot">Zero harm is our operating standard.</p>
+      </article>
+
+      <article class="ehs-pillar ehs-pillar--hs">
+        <p class="ehs-pillar__label">Health &amp; Safety</p>
+        <h3 class="ehs-pillar__title">Supervisors set the standard on site</h3>
+        <p class="ehs-pillar__body">
+          Project management and supervisory staff at every level are expected to be safety role
+          models, building a strong safety culture through training, education and coaching rather
+          than paperwork alone.
+        </p>
+        <p class="ehs-pillar__foot">Led from the front, on every shift.</p>
+      </article>
+
+    </div>
+
+    <!-- Practices -->
+    <div class="ehs__practice">
+      <div class="ehs__practice-head">
+        <h3 class="ehs__practice-title">How we hold ourselves to it</h3>
+        <p class="ehs__practice-sub">Ten practices, checked on every project.</p>
+      </div>
+
+      <div class="ehs__practice-grid">
+        @for (group of practices; track group.title) {
+          <section class="ehs-group">
+            <h4 class="ehs-group__title">{{ group.title }}</h4>
+            <p class="ehs-group__note">{{ group.note }}</p>
+            <ul class="ehs-group__list">
+              @for (item of group.items; track item) {
+                <li class="ehs-group__item">{{ item }}</li>
+              }
+            </ul>
+          </section>
+        }
+      </div>
+    </div>
+
+    <!-- Record strip -->
+    <div class="ehs__record">
+      <div class="ehs__stat">
+        <span class="ehs__stat-val">0</span>
+        <span class="ehs__stat-lbl">Goal for harm</span>
+      </div>
+      <div class="ehs__stat">
+        <span class="ehs__stat-val">100%</span>
+        <span class="ehs__stat-lbl">Sites audited</span>
+      </div>
+      <div class="ehs__stat">
+        <span class="ehs__stat-val">20+</span>
+        <span class="ehs__stat-lbl">Years in PNG</span>
+      </div>
+    </div>
+
+  </div>
+</section>

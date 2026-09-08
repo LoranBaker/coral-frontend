@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CormanFooterComponent } from '../corman-footer/corman-footer.component';
+import { EhsComponent } from '../ehs/ehs.component';
 
 @Component({
   selector: 'app-corman-jv',
   standalone: true,
-  imports: [CommonModule, CormanFooterComponent],
+  imports: [CommonModule, EhsComponent, CormanFooterComponent],
   templateUrl: './corman-jv.component.html',
   styleUrls: ['./corman-jv.component.scss']
 })
