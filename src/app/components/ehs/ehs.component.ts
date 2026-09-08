@@ -24,7 +24,7 @@ export class EhsComponent {
     {
       src: 'assets/companyimg/safety-traning.jpg',
       alt: 'Crew running a pre-start briefing at a drill pad',
-      caption: 'Pre-start briefing, Hides gas field'
+      caption: 'HSE training'
     },
     {
       src: 'assets/companyimg/311.JPG',
